@@ -1,0 +1,47 @@
+:root {
+    font-size: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    // display: flex;
+    background-color: #118AB2;
+
+
+    nav {
+
+        ul {
+            display: flex;
+            list-style: none;
+            justify-content: space-around;
+
+            :hover {
+                cursor: pointer;
+                background-color: #073B4C;
+            }
+
+            li {
+                padding: .8rem 2rem;
+
+                a {
+                    text-decoration: none;
+                    color: #ffffff;
+                }
+            }
+
+            .active {
+                background-color: #073B4C;
+            }
+        }
+    }
+}
+
+aside {
+    display: none;
+    height: auto;
+    position: relative;
+}
