@@ -1,5 +1,7 @@
 package org.academiadecodigo.jupiter.services;
 
+import org.academiadecodigo.jupiter.persistance.model.chart.Order;
+
 import java.util.List;
 
 public interface OrderService {

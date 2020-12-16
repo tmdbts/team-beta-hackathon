@@ -1,6 +1,6 @@
 package org.academiadecodigo.jupiter.persistance.dao;
 
-import org.hibernate.criterion.Order;
+import org.academiadecodigo.jupiter.persistance.model.chart.Order;
 
 public interface OrderDao extends Dao<Order> {
 }
