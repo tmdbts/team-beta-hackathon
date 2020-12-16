@@ -44,3 +44,71 @@ aside {
   position: relative;
 }
 /*# sourceMappingURL=main.css.map */
+
+
+
+
+
+/*{padding: 0; margin: 0; box-sizing: border-box;}*/
+.receipt-image {
+  background: url('../images/francesinha.jpg');
+	text-align: center;
+	width: 100%;
+	height: auto;
+	background-size: cover;
+	/*background-attachment: fixed;*/
+	position: relative;
+	overflow: hidden;
+	border-radius: 0 0 85% 85% / 30%;
+}
+.receipt-image .overlay{
+	width: 100%;
+	height: 100%;
+	padding: 50px;
+	color: #FFF;
+	text-shadow: 5px 5px 5px #333;
+  /*background-image: linear-gradient( 135deg, #9f05ff69 10%, #fd5e086b 100%);*/
+	
+}
+
+h1 {
+	font-family: 'Dancing Script', cursive;
+	font-size: 80px;
+	margin-bottom: 30px;
+}
+
+h3, p {
+	font-family: 'Open Sans', sans-serif;
+	margin-bottom: 30px;
+}
+
+
+
+/* tabela Preparation, Ingredients, Type */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . . ."
+    ". Preparation Ingredients\\\/Type ."
+    ". . . .";
+}
+.Preparation { grid-area: Preparation; }
+.Ingredients\\\/Type {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "Ingredients Ingredients Ingredients"
+    "Type Type Type";
+  grid-area: Ingredients\\\/Type;
+}
+.Ingredients { grid-area: Ingredients; }
+.Type { grid-area: Type; }
+
+
+
+
