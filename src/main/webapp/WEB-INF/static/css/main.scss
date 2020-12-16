@@ -8,9 +8,7 @@
 }
 
 header {
-    // display: flex;
     background-color: #118AB2;
-
 
     nav {
 
@@ -40,8 +38,31 @@ header {
     }
 }
 
-aside {
-    display: none;
-    height: auto;
-    position: relative;
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem;
+
+    .cards-container {
+        display: grid;
+        grid-gap: 3rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+        .card {
+            padding: 1rem;
+            text-align: center;
+            background-color: #dddddd;
+            border-radius: 10px;
+        }
+
+        .description {
+            h3 {
+                margin: 1rem 0;
+            }
+        }
+    }
 }
+
+@import 'desktop'

@@ -38,9 +38,35 @@ header nav ul .active {
   background-color: #073B4C;
 }
 
-aside {
-  display: none;
-  height: auto;
-  position: relative;
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1rem;
+}
+
+main .cards-container {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 3rem;
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+main .cards-container .card {
+  padding: 1rem;
+  text-align: center;
+  background-color: #dddddd;
+  border-radius: 10px;
+}
+
+main .cards-container .description h3 {
+  margin: 1rem 0;
 }
 /*# sourceMappingURL=main.css.map */
