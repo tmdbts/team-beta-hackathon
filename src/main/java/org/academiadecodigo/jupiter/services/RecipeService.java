@@ -1,5 +1,7 @@
 package org.academiadecodigo.jupiter.services;
 
+import org.academiadecodigo.jupiter.persistance.model.recipe.Recipe;
+
 public interface RecipeService {
 
     //generates a list of recipes of the same type

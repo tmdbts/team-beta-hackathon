@@ -1,5 +1,9 @@
 package org.academiadecodigo.jupiter.controllers;
 
+import org.academiadecodigo.jupiter.controllers.assembler.UsertoDto;
+import org.academiadecodigo.jupiter.persistance.model.User;
+import org.academiadecodigo.jupiter.persistance.model.dto.UserDto;
+import org.academiadecodigo.jupiter.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,16 +16,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 
 
-    UserServise userServise;
+    UserService userService;
     UsertoDto usertoDto;
 
 
 
     @RequestMapping(method = RequestMethod.GET, path = {"/{id}"})
     public String defaultController(Model model, @PathVariable Integer id) {
-        User user = userServise.get(id);
+        User user = userService.getUser(id);
         UserDto userDto = usertoDto.convert(user);
-        model.addAttribute(userDto);
+        model.addAttribute("userDto",userDto);
         return "home";
     }
 
@@ -32,8 +36,8 @@ public class HomeController {
     }
 
     @Autowired
-    public void setUserServise(UserServise userServise) {
-        this.userServise = userServise;
+    public void setUserServise(UserService userServise) {
+        this.userService = userServise;
     }
 
 

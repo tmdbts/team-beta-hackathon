@@ -1,5 +1,7 @@
 package org.academiadecodigo.jupiter.controllers;
 
+import org.academiadecodigo.jupiter.persistance.model.recipe.Recipe;
+import org.academiadecodigo.jupiter.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,10 +23,13 @@ public class OrderController {
     // Can serve URLs like http://www.someserver.org/someapp/hello?name=catarina
     @RequestMapping(method = RequestMethod.GET, value = "/{uid}")
     public String loadRecipes(Model model, @RequestParam("rcid") String rcid, @RequestParam("brid") String brcid, @PathVariable("uid") Integer uid) {
+        //Falta trtar casos NULl
         List<Integer> recipesIds = stringArraytoInt(rcid);
         List<Integer> blackListedIds = stringArraytoInt(brcid);
-        List<Recipes> recipesList = orderService.getRecipes(recipesIds,blackListedIds);
-        model.addAttribute("recipes", recipesList);
+        List<Recipe> recipesList = orderService.listOrders(recipesIds,blackListedIds);
+        if (recipesIds != null) {
+            model.addAttribute("recipes", recipesList);
+        }
         model.addAttribute("rcid", recipesIds);
         model.addAttribute("brid",blackListedIds);
         return "home";
