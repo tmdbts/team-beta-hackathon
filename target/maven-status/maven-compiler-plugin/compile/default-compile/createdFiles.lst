@@ -1,0 +1,9 @@
+org/academiadecodigo/jupiter/persistance/model/recipe/Recipe.class
+org/academiadecodigo/jupiter/SpringBootstrap.class
+org/academiadecodigo/jupiter/persistance/model/AbstractModel.class
+org/academiadecodigo/jupiter/persistance/model/Model.class
+org/academiadecodigo/jupiter/persistance/model/Chart.class
+org/academiadecodigo/jupiter/persistance/model/recipe/Ingredient.class
+org/academiadecodigo/jupiter/persistance/model/User.class
+org/academiadecodigo/jupiter/persistance/dao/Dao.class
+org/academiadecodigo/jupiter/persistance/model/recipe/RecipeType.class
