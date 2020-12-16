@@ -6,17 +6,14 @@ public class OrderServiceImplementation implements OrderService{
 
     private OrderDao orderDao;
 
-    public OrderDao getOrderDao() {
-        return orderDao;
-    }
-
     public void setOrderDao(OrderDao orderDao) {
         this.orderDao = orderDao;
     }
 
+
     @Override
     public Order addOrder(Order order) {
-        return null;
+
     }
 
     @Override

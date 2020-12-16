@@ -1,5 +1,7 @@
 package org.academiadecodigo.jupiter.services;
 
+import org.academiadecodigo.jupiter.persistance.model.User;
+
 import javax.swing.plaf.UIResource;
 import java.util.List;
 
@@ -28,7 +30,7 @@ public class UserServiceImplementation implements UserService {
     @Override
     public User getUser(Integer id) {
 
-        return null;
+        return User;
     }
 
     @Override

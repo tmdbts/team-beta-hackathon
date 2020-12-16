@@ -21,4 +21,7 @@ public interface Dao<T extends Model> {
         void delete(Integer id);
 
 
+        //Filter recipes with ids
+        List<T> shuffleRecipesById(List<Integer> blackListedIds, List<Integer> recipeIds);
+
 }
