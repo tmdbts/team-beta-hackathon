@@ -48,7 +48,7 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 1rem;
+  padding: 1rem 2rem;
 }
 
 main .cards-container {
@@ -68,5 +68,84 @@ main .cards-container .card {
 
 main .cards-container .description h3 {
   margin: 1rem 0;
+}
+
+main .cards-container .quantity-label {
+  margin: 1rem 0 .5rem;
+  text-align: left;
+}
+
+main .cards-container .quantity-label .label {
+  font-weight: bold;
+}
+
+main .cards-container .buttons-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .cards-container .buttons-container button {
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+main .cards-container .buttons-container button.rounded {
+  border-radius: 1rem;
+  padding: .4rem 1.5rem;
+}
+
+main .cards-container .buttons-container .remove {
+  background-color: #ff0000;
+  color: #ffffff;
+  border: 2px solid #ff0000;
+}
+
+main .cards-container .buttons-container .remove:hover {
+  background-color: #ffffff;
+  color: #ff0000;
+}
+
+main .cards-container .buttons-container .quantity-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .cards-container .buttons-container .quantity-container input[type=number]::-webkit-inner-spin-button,
+main .cards-container .buttons-container .quantity-container input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+main .cards-container .buttons-container .quantity-container .circle {
+  padding: .2rem;
+  border-radius: 50%;
+}
+
+main .cards-container .buttons-container .quantity-container .quantity-span {
+  font-weight: bold;
+  margin: 0 .5rem;
+}
+
+main .cards-container .buttons-container .quantity-container .quantity {
+  background-color: #118AB2;
+  color: #ffffff;
+  border: 2px solid #118AB2;
+}
+
+main .cards-container .buttons-container .quantity-container .quantity:hover {
+  color: #118AB2;
+  background-color: #ffffff;
 }
 /*# sourceMappingURL=main.css.map */
