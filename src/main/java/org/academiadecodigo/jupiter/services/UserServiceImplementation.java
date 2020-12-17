@@ -50,7 +50,6 @@ public class UserServiceImplementation implements UserService {
     public void deleteUser(Integer id) {}//throws AssociationExistsException, UserNotFoundException {
 
 
-
     @Override
     public List<User> listUsers() {
         return null;

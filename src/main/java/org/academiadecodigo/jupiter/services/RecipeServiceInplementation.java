@@ -25,6 +25,7 @@ public class RecipeServiceInplementation implements RecipeService{
         return null;
     }
 
+
     @Override
     public Recipe generateOneRandomRecipe(RecipeType recipeType) {
         return null;
