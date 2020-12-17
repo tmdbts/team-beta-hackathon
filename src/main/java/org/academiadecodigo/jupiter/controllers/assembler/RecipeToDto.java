@@ -22,13 +22,14 @@ public class RecipeToDto {
         return recipeDto;
     }
 
+    public List<RecipeDto> convert(List<Recipe> list) {
 
-
-    public List<RecipeDto> convert(List<Recipe> list){
         List<RecipeDto> conversions = new ArrayList<>(list.size());
+
         for (Recipe toConvert : list) {
             conversions.add(convert(toConvert));
         }
+        
         return conversions;
     }
 
