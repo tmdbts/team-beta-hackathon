@@ -63,8 +63,8 @@ public class OrderController {
         String rcid1 = getRCID(listIds);
         List<RecipeDto> listConverted = recipeToDto.convert(recipeList);
         UserDto user = userToDto.convert(userService.getUser(uid));
-        model.addAttribute("user", user);
-        model.addAttribute("recipes", listConverted);
+        model.addAttribute("userDto", user);
+        model.addAttribute("recipeDtoList", listConverted);
         model.addAttribute("rcid", rcid1);
         model.addAttribute("brid", blackListedIds);
         return "index";
