@@ -53,6 +53,152 @@ html {
   --color-background-quantity-btns: #dddddd;
 }
 
+.userform-page {
+  /* basic stylings ------------------------------------------ */
+  /* form starting stylings ------------------------------- */
+  /* LABEL ======================================= */
+  /* active state */
+  /* BOTTOM BARS ================================= */
+  /* active state */
+  /* HIGHLIGHTER ================================== */
+  /* active state */
+  /* ANIMATIONS ================ */
+}
+
+.userform-page body {
+  background: url(https://scotch.io/wp-content/uploads/2014/07/61.jpg);
+}
+
+.userform-page .container {
+  font-family: 'Roboto';
+  width: 600px;
+  margin: 30px auto 0;
+  display: block;
+  background: #FFF;
+  padding: 10px 50px 50px;
+}
+
+.userform-page h2 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.userform-page h2 small {
+  font-weight: normal;
+  color: #888;
+  display: block;
+}
+
+.userform-page .footer {
+  text-align: center;
+}
+
+.userform-page .footer a {
+  color: #53B2C8;
+}
+
+.userform-page .group {
+  position: relative;
+  margin-bottom: 45px;
+}
+
+.userform-page input {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #757575;
+}
+
+.userform-page input:focus {
+  outline: none;
+}
+
+.userform-page label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.userform-page input:focus ~ label, .userform-page input:valid ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: #5264AE;
+}
+
+.userform-page .bar {
+  position: relative;
+  display: block;
+  width: 300px;
+}
+
+.userform-page .bar:before, .userform-page .bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #5264AE;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.userform-page .bar:before {
+  left: 50%;
+}
+
+.userform-page .bar:after {
+  right: 50%;
+}
+
+.userform-page input:focus ~ .bar:before, .userform-page input:focus ~ .bar:after {
+  width: 50%;
+}
+
+.userform-page .highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.userform-page input:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #5264AE;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@keyframes inputHighlighter {
+  from {
+    background: #5264AE;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
 .page-title {
   font-family: 'Poppins';
   text-align: center;
