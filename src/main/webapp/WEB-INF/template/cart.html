@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <thymeleaf th:replace="head :: head" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="active"><a th:href="@{home/}" class="nav-link">Home</a></li>
+                <li><a th:href="@{cart/}" class="nav-link">Cart</a></li>
+                <li><a th:href="@{logout/}" class="nav-link">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="cart-page">
+        <div class="container">
+            <div class="row" th:each="recipe : ${recipeDtoList}">
+                <div class="img-div">
+                    <img th:src="${recipe.photoUrl}" alt="receipt img" />
+                </div>
+                <div class="description">
+                    <h2 class="title" th:text="${recipe.name}"></h2>
+                    <p class="content" th:text="${recipe.ingredients}"></p>
+                </div>
+                <div class="quantity-container">
+                    <button class="circle plus-minus">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <span class="quantity" th:text="${}"></span>
+                    <button class="circle plus-minus">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <button class="circle remove">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="finish">
+                <button class="finish-btn">Finish</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,12 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/483111cb5a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/main.css">
-    <title>Team Beta</title>
+    <thymeleaf th:replace="head::head"/>
 </head>
 
 <body>
@@ -20,31 +16,137 @@
         </nav>
     </header>
 
-    <aside>
-        <h1>Username here</h1>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur iusto, ipsa unde rerum accusamus, eius nesciunt voluptatibus velit deserunt saepe officiis dolorem, porro a excepturi cum aspernatur. Minus, quisquam aliquam?</p>
-    </aside>
-
-    <main>
-        <div class="container">
-            <div class="card">
+    <main class="home-page">
+        <div class="cards-container">
+            <div class="card" th:each="recipe : ${recipeDtoList}">
                 <div class="img-container">
-                    <img src="" alt="receipt image">
+                    <img th:src="${recipe.photoUrl}" alt="receipt image">
                 </div>
                 <div class="description">
-                    <h3 class="receipt-name">Receipt Name</h3>
+                    <h3 class="receipt-name" th:text="${recipe.name}"></h3>
                     <p class="receipt-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, suscipit optio! Aperiam, excepturi eaque quaerat consequatur autem quo, cupiditate laudantium ipsa, modi asperiores aut non ab fugit possimus sunt exercitationem?</p>
+                </div>
+                <div class="quantity-label">
+                    <p class="label">Quantity</p>
                 </div>
                 <div class="buttons-container">
                     <div class="quantity-container">
-                        <button class="minus quantity"><i class="fas fa-minus"></i></button>
-                        <form action="" method="POST">
-                            <input type="number" name="quantity" id="quantity">
-                        </form>
-                        <button class="plus quantity"><i class="fas fa-plus"></i></button>
+                        <button class="quantity circle"><i class="fas fa-minus"></i></button>
+                        <span class="quantity-span"></span>
+                        <button class="quantity circle"><i class="fas fa-plus"></i></button>
                     </div>
                     <div class="remove-container">
-                        <button class="remove"></button>
+                        <a class="remove rounded" th:href="@{/order/${userDto.id}(rcid=${rcid},brid=${brid})','${recipe.id}}">Change</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="../static/images/francesinha.jpg" alt="receipt image">
+                </div>
+                <div class="description">
+                    <h3 class="receipt-name">Receipt Name 2</h3>
+                    <p class="receipt-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, suscipit optio! Aperiam, excepturi eaque quaerat consequatur autem quo, cupiditate laudantium ipsa, modi asperiores aut non ab fugit possimus sunt exercitationem?</p>
+                </div>
+                <div class="quantity-label">
+                    <p class="label">Quantity</p>
+                </div>
+                <div class="buttons-container">
+                    <div class="quantity-container">
+                        <button class="quantity circle"><i class="fas fa-minus"></i></button>
+                        <span class="quantity-span">1</span>
+                        <button class="quantity circle"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="remove-container">
+                        <button class="remove rounded">Change</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="../static/images/francesinha.jpg" alt="receipt image">
+                </div>
+                <div class="description">
+                    <h3 class="receipt-name">Receipt Name 3</h3>
+                    <p class="receipt-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, suscipit optio! Aperiam, excepturi eaque quaerat consequatur autem quo, cupiditate laudantium ipsa, modi asperiores aut non ab fugit possimus sunt exercitationem?</p>
+                </div>
+                <div class="quantity-label">
+                    <p class="label">Quantity</p>
+                </div>
+                <div class="buttons-container">
+                    <div class="quantity-container">
+                        <button class="quantity circle"><i class="fas fa-minus"></i></button>
+                        <span class="quantity-span">1</span>
+                        <button class="quantity circle"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="remove-container">
+                        <button class="remove rounded">Change</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="../static/images/francesinha.jpg" alt="receipt image">
+                </div>
+                <div class="description">
+                    <h3 class="receipt-name">Receipt Name 4</h3>
+                    <p class="receipt-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, suscipit optio! Aperiam, excepturi eaque quaerat consequatur autem quo, cupiditate laudantium ipsa, modi asperiores aut non ab fugit possimus sunt exercitationem?</p>
+                </div>
+                <div class="quantity-label">
+                    <p class="label">Quantity</p>
+                </div>
+                <div class="buttons-container">
+                    <div class="quantity-container">
+                        <button class="quantity circle"><i class="fas fa-minus"></i></button>
+                        <span class="quantity-span">1</span>
+                        <button class="quantity circle"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="remove-container">
+                        <button class="remove rounded">Change</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="../static/images/francesinha.jpg" alt="receipt image">
+                </div>
+                <div class="description">
+                    <h3 class="receipt-name">Receipt Name 4</h3>
+                    <p class="receipt-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, suscipit optio! Aperiam, excepturi eaque quaerat consequatur autem quo, cupiditate laudantium ipsa, modi asperiores aut non ab fugit possimus sunt exercitationem?</p>
+                </div>
+                <div class="quantity-label">
+                    <p class="label">Quantity</p>
+                </div>
+                <div class="buttons-container">
+                    <div class="quantity-container">
+                        <button class="quantity circle"><i class="fas fa-minus"></i></button>
+                        <span class="quantity-span">1</span>
+                        <button class="quantity circle"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="remove-container">
+                        <button class="remove rounded">Change</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="../static/images/francesinha.jpg" alt="receipt image">
+                </div>
+                <div class="description">
+                    <h3 class="receipt-name">Receipt Name 4</h3>
+                    <p class="receipt-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, suscipit optio! Aperiam, excepturi eaque quaerat consequatur autem quo, cupiditate laudantium ipsa, modi asperiores aut non ab fugit possimus sunt exercitationem?</p>
+                </div>
+                <div class="quantity-label">
+                    <p class="label">Quantity</p>
+                </div>
+                <div class="buttons-container">
+                    <div class="quantity-container">
+                        <button class="quantity circle"><i class="fas fa-minus"></i></button>
+                        <span class="quantity-span">1</span>
+                        <button class="quantity circle"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="remove-container">
+                        <button class="remove rounded">Change</button>
                     </div>
                 </div>
             </div>

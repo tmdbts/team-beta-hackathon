@@ -15,9 +15,7 @@ public class Ingredient extends AbstractModel {
     private double price = 0;
     private String name;
 
-    @ManyToMany(
-            fetch = FetchType.EAGER
-    )
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Recipe> recipesList;
 
     public double getPrice() {
@@ -52,5 +50,4 @@ public class Ingredient extends AbstractModel {
     public String toString() {
         return name;
     }
-
 }

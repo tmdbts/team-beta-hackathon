@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;700&display=swap');
+
 :root {
     font-size: 16px;
 }
@@ -7,10 +9,12 @@
     padding: 0;
 }
 
-header {
-    // display: flex;
-    background-color: #118AB2;
+body {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
 
+header {
+    background-color: #118AB2;
 
     nav {
 
@@ -40,8 +44,12 @@ header {
     }
 }
 
-aside {
-    display: none;
-    height: auto;
-    position: relative;
+main {
+    padding: 1.5rem
 }
+
+@import 'vars';
+@import 'home';
+@import 'receipt';
+@import 'cart';
+@import 'desktop';
