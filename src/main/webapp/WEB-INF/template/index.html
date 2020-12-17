@@ -1,12 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/483111cb5a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/src/main/webapp/WEB-INF/static/css/main.css">
-    <title>Team Beta</title>
+    <thymeleaf th:replace="head::head"/>
 </head>
 
 <body>
@@ -22,12 +18,12 @@
 
     <main class="home-page">
         <div class="cards-container">
-            <div class="card">
+            <div class="card" th:each="recipe : ${recipeDtoList}">
                 <div class="img-container">
-                    <img src="../static/images/francesinha.jpg" alt="receipt image">
+                    <img th:src="${recipe.photoUrl}" alt="receipt image">
                 </div>
                 <div class="description">
-                    <h3 class="receipt-name">Receipt Name 1</h3>
+                    <h3 class="receipt-name" th:text="${recipe.name}"></h3>
                     <p class="receipt-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, suscipit optio! Aperiam, excepturi eaque quaerat consequatur autem quo, cupiditate laudantium ipsa, modi asperiores aut non ab fugit possimus sunt exercitationem?</p>
                 </div>
                 <div class="quantity-label">
@@ -36,11 +32,11 @@
                 <div class="buttons-container">
                     <div class="quantity-container">
                         <button class="quantity circle"><i class="fas fa-minus"></i></button>
-                        <span class="quantity-span">1</span>
+                        <span class="quantity-span"></span>
                         <button class="quantity circle"><i class="fas fa-plus"></i></button>
                     </div>
                     <div class="remove-container">
-                        <button class="remove rounded">Change</button>
+                        <a class="remove rounded" th:href="@{/order/${userDto.id}(rcid=${rcid},brid=${brid})','${recipe.id}}">Change</a>
                     </div>
                 </div>
             </div>
