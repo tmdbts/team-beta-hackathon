@@ -315,3 +315,21 @@ html {
   }
 }
 /*# sourceMappingURL=main.css.map */
+
+
+
+
+
+/*user info*/
+input.hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+.tital{
+  font-size:16px; font-weight:500;
+}
+
+.bot-border{
+  margin:15px 0  15px 0
+}
