@@ -13,18 +13,15 @@ import java.util.List;
 public class Recipe extends AbstractModel {
 
     private String name;
-    private int cookingTime;
+    private Integer cookingTime;
     private String description;
     private String photoUrl;
 
-    @ManyToMany(
-            fetch = FetchType.EAGER
-    )
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<RecipeType> types;
-
+    
     @ManyToMany
     @Fetch(value = FetchMode.SUBSELECT)
-    //Fazer método de passar Ingridients
     private List<Ingredient> ingredientList;
 
     public String getName() {
@@ -94,8 +91,4 @@ public class Recipe extends AbstractModel {
                 ", ingredientList=" + ingredientList +
                 '}';
     }
-
-
-
-
 }

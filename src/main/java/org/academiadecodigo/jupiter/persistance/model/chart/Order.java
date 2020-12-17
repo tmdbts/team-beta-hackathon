@@ -15,8 +15,8 @@ public class Order extends AbstractModel {
     private int quantity = 1;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("chartId")
-    private Chart chart;
+    @MapsId("cartId")
+    private Cart cart;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("recipeId")
@@ -38,12 +38,12 @@ public class Order extends AbstractModel {
         this.quantity = quantity;
     }
 
-    public Chart getChart() {
-        return chart;
+    public Cart getCart() {
+        return cart;
     }
 
-    public void setChart(Chart chart) {
-        this.chart = chart;
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
     public Recipe getRecipe() {
@@ -54,9 +54,12 @@ public class Order extends AbstractModel {
         this.recipe = recipe;
     }
 
-    //Returns the price of the recipe for the quantity chosen by the user
+    /**
+     * Gets the price of the recipe for the quantity chosen by the user
+     *
+     * @return the price of the recipe for the quantity chosen by the user
+     */
     public double getPrice() {
         return recipe.getRecipePrice() * quantity;
     }
-
 }

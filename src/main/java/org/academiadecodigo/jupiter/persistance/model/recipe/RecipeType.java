@@ -15,9 +15,7 @@ public class RecipeType extends AbstractModel {
 
     private String type;
 
-    @ManyToMany(
-            fetch = FetchType.EAGER
-    )
+    @ManyToMany(fetch = FetchType.EAGER)
     List<Recipe> recipeList;
 
     public String getType() {

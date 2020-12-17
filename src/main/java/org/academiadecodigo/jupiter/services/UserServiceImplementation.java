@@ -5,14 +5,12 @@ import org.academiadecodigo.jupiter.persistance.dao.UserDao;
 import org.academiadecodigo.jupiter.persistance.model.User;
 import org.academiadecodigo.jupiter.persistance.model.chart.Order;
 
-import javax.swing.plaf.UIResource;
 import java.util.List;
 
 public class UserServiceImplementation implements UserService {
 
     private UserDao userDao;
     private OrderDao orderDao;
-
 
     public UserDao getUserDao() {
         return userDao;
@@ -47,9 +45,8 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public void deleteUser(Integer id) {}//throws AssociationExistsException, UserNotFoundException {
-
-
+    public void deleteUser(Integer id) {
+    }//throws AssociationExistsException, UserNotFoundException {
 
     @Override
     public List<User> listUsers() {

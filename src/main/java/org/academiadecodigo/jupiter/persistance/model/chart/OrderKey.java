@@ -7,16 +7,16 @@ import java.util.Objects;
 @Embeddable
 public class OrderKey implements Serializable {
 
-    private Integer chartId;
+    private Integer cartId;
 
     private Integer recipeId;
 
-    public Integer getChartId() {
-        return chartId;
+    public Integer getCartId() {
+        return cartId;
     }
 
-    public void setChartId(Integer chartId) {
-        this.chartId = chartId;
+    public void setCartId(Integer chartId) {
+        this.cartId = chartId;
     }
 
     public Integer getRecipeId() {
@@ -29,19 +29,20 @@ public class OrderKey implements Serializable {
 
     @Override
     public boolean equals(Object o) {
+
         if (this == o) return true;
 
         if (o == null || getClass() != o.getClass())
             return false;
 
         OrderKey that = (OrderKey) o;
-        return Objects.equals(chartId, that.chartId) &&
+
+        return Objects.equals(cartId, that.cartId) &&
                 Objects.equals(recipeId, that.recipeId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(chartId, recipeId);
+        return Objects.hash(cartId, recipeId);
     }
-
 }

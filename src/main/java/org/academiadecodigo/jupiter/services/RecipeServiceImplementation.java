@@ -6,7 +6,7 @@ import org.academiadecodigo.jupiter.persistance.model.recipe.RecipeType;
 
 import java.util.List;
 
-public class RecipeServiceInplementation implements RecipeService{
+public class RecipeServiceImplementation implements RecipeService {
 
     private RecipeDao recipeDao;
 
@@ -30,7 +30,10 @@ public class RecipeServiceInplementation implements RecipeService{
         return null;
     }
 
+    @Override
+    public Recipe get(Integer id) {
+//        TODO: Implementation get();
+    }
 
-
-
+//    TODO: Ingredients to string
 }
