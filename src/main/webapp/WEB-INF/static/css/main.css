@@ -50,7 +50,8 @@ main {
 html {
   --color-quantity-btns: #118AB2;
   --color-remove-btn: #ff0000;
-  --color-background-quantity-btns: #dddddd;
+  --color-background-quantity-btns: #f1f1f1;
+  --color-card-background: #f1f1f1;
 }
 
 .userform-page {
@@ -230,8 +231,10 @@ html {
 .home-page .cards-container .card {
   padding: 1rem;
   text-align: center;
-  background-color: #dddddd;
+  background-color: var(--color-card-background);
   border-radius: 10px;
+  -webkit-box-shadow: 1px 3px 16px -4px rgba(0, 0, 0, 0.75);
+          box-shadow: 1px 3px 16px -4px rgba(0, 0, 0, 0.75);
 }
 
 .home-page .cards-container .img-container img {
@@ -295,6 +298,10 @@ html {
           align-items: center;
 }
 
+.home-page .cards-container .buttons-container .quantity-container input {
+  width: 5rem;
+}
+
 .home-page .cards-container .buttons-container .quantity-container .circle {
   padding: .2rem;
   border-radius: 50%;
@@ -314,6 +321,18 @@ html {
 .home-page .cards-container .buttons-container .quantity-container .quantity:hover {
   color: var(--color-quantity-btns);
   background-color: var(--color-background-quantity-btns);
+}
+
+.home-page .submit-container {
+  text-align: right;
+}
+
+.home-page .submit-container .submit-btn {
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+  border-radius: 1rem;
+  padding: .2rem 1.3rem;
 }
 
 .receipt-image {
