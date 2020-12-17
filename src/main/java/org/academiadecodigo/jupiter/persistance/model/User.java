@@ -1,6 +1,8 @@
 package org.academiadecodigo.jupiter.persistance.model;
 
 
+import org.academiadecodigo.jupiter.persistance.model.chart.Chart;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;

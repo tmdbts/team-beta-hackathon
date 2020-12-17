@@ -1,4 +1,7 @@
-package org.academiadecodigo.jupiter.persistance.model;
+package org.academiadecodigo.jupiter.persistance.model.chart;
+
+import org.academiadecodigo.jupiter.persistance.model.AbstractModel;
+import org.academiadecodigo.jupiter.persistance.model.User;
 
 import javax.persistence.*;
 
