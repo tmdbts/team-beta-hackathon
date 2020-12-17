@@ -53,6 +53,13 @@ html {
   --color-background-quantity-btns: #dddddd;
 }
 
+.page-title {
+  font-family: 'Poppins';
+  text-align: center;
+  font-size: 2rem;
+  margin: 2rem 0;
+}
+
 .home-page {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -110,15 +117,16 @@ html {
           align-items: center;
 }
 
-.home-page .cards-container .buttons-container button {
+.home-page .cards-container .buttons-container button,
+.home-page .cards-container .buttons-container a {
   cursor: pointer;
   -webkit-transition: .2s;
   transition: .2s;
 }
 
-.home-page .cards-container .buttons-container button.rounded {
+.home-page .cards-container .buttons-container .rounded {
   border-radius: 1rem;
-  padding: .4rem 1.5rem;
+  padding: .2rem 1.3rem;
 }
 
 .home-page .cards-container .buttons-container .remove {
@@ -221,6 +229,13 @@ html {
   font-size: 1.5rem;
 }
 
+.cart-page .page-title {
+  font-family: 'Poppins';
+  text-align: center;
+  font-size: 2rem;
+  margin: 2rem 0;
+}
+
 .cart-page .container .row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -245,6 +260,9 @@ html {
 
 .cart-page .container .row .description {
   margin: 0 1rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .cart-page .container .row .quantity-container {
@@ -290,9 +308,21 @@ html {
   margin: 0 .5rem;
 }
 
-.cart-page .container .row .finish .finish-btn {
-  display: block;
-  margin-left: 100%;
+.cart-page .container .finish {
+  text-align: right;
+}
+
+.cart-page .container .finish .finish-btn {
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  padding: .4rem 1.5rem;
+  border: none;
+  background-color: #FFD166;
+  color: #000000;
+  font-weight: bold;
 }
 
 @media only screen and (min-width: 1275px) {
@@ -315,21 +345,3 @@ html {
   }
 }
 /*# sourceMappingURL=main.css.map */
-
-
-
-
-
-/*user info*/
-input.hidden {
-  position: absolute;
-  left: -9999px;
-}
-
-.tital{
-  font-size:16px; font-weight:500;
-}
-
-.bot-border{
-  margin:15px 0  15px 0
-}
