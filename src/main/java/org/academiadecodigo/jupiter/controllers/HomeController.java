@@ -6,6 +6,7 @@ import org.academiadecodigo.jupiter.services.RecipeService;
 import org.academiadecodigo.jupiter.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,15 +28,16 @@ public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET, path = {"/{id}"})
     public String defaultController(@PathVariable Integer id) {
+
         List<Recipe> randomRecipes = recipeService.generateRecipeList();
         String recipesIds = getRecipesIds(randomRecipes);
+
         return "redirect:/order/" + id + "?rcid=" + recipesIds + "&brid=";
     }
 
-
     @Autowired
-    public void setUserToDto(UserToDto usertoDto) {
-        this.userToDto = usertoDto;
+    public void setUserToDto(UserToDto userToDto) {
+        this.userToDto = userToDto;
     }
 
     @Autowired
@@ -54,5 +56,8 @@ public class HomeController {
         return stringBuilder.toString();
     }
 
-
+    @RequestMapping(method = RequestMethod.GET, path = {"/test"})
+    public String showTest() {
+        return "test";
+    }
 }

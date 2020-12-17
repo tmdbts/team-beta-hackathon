@@ -1,7 +1,7 @@
 package org.academiadecodigo.jupiter.persistance.dao.jpa;
 
 import org.academiadecodigo.jupiter.persistance.dao.CartDao;
-import org.academiadecodigo.jupiter.persistance.model.chart.Cart;
+import org.academiadecodigo.jupiter.persistance.model.cart.Cart;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.TypedQuery;

@@ -2,11 +2,12 @@ package org.academiadecodigo.jupiter.controllers.assembler;
 
 import org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto;
 import org.academiadecodigo.jupiter.persistance.model.recipe.Recipe;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
+@Component
 public class RecipeToDto {
 
     public RecipeDto convert(Recipe recipe) {
@@ -29,7 +30,7 @@ public class RecipeToDto {
         for (Recipe toConvert : list) {
             conversions.add(convert(toConvert));
         }
-        
+
         return conversions;
     }
 

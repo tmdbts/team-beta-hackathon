@@ -1,25 +1,29 @@
 package org.academiadecodigo.jupiter.services;
 
 import org.academiadecodigo.jupiter.persistance.dao.OrderDao;
-import org.academiadecodigo.jupiter.persistance.model.chart.Order;
+import org.academiadecodigo.jupiter.persistance.model.cart.Pedidos;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class OrderServiceImplementation implements OrderService {
 
     private OrderDao orderDao;
 
+    @Autowired
     public void setOrderDao(OrderDao orderDao) {
         this.orderDao = orderDao;
     }
 
     @Override
-    public Order addOrder(Order order) {
-        return order;
+    public Pedidos addOrder(Pedidos pedidos) {
+        return pedidos;
     }
 
     @Override
-    public Order getOrder(Integer id) {
+    public Pedidos getOrder(Integer id) {
         return null;
     }
 
@@ -28,12 +32,12 @@ public class OrderServiceImplementation implements OrderService {
     } // throws AssociationExistsException, OrderNotFoundException
 
     @Override
-    public Order updateOrder(Integer id) {
+    public Pedidos updateOrder(Integer id) {
         return null;
     }
 
     @Override
-    public List<Order> listOrders() {
+    public List<Pedidos> listOrders() {
         return null;
     }
 }

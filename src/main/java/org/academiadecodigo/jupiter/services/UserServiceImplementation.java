@@ -3,7 +3,7 @@ package org.academiadecodigo.jupiter.services;
 import org.academiadecodigo.jupiter.persistance.dao.CartDao;
 import org.academiadecodigo.jupiter.persistance.dao.UserDao;
 import org.academiadecodigo.jupiter.persistance.model.User;
-import org.academiadecodigo.jupiter.persistance.model.chart.Order;
+import org.academiadecodigo.jupiter.persistance.model.cart.Pedidos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,10 +40,10 @@ public class UserServiceImplementation implements UserService {
 
     //TODO : I AM LOST BETWEEN CART AND ORDERS
     @Override
-    public List<Order> getUserOrders(Integer id) {
+    public List<Pedidos> getUserOrders(Integer id) {
         return null;
     }
-    
+
     @Override
     public User saveUser(User user) {
         return userDao.saveOrUpdate(user);

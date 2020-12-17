@@ -1,23 +1,23 @@
 package org.academiadecodigo.jupiter.services;
 
-import org.academiadecodigo.jupiter.persistance.model.chart.Order;
+import org.academiadecodigo.jupiter.persistance.model.cart.Pedidos;
 
 import java.util.List;
 
 public interface OrderService {
 
     //add Order
-    Order addOrder(Order order);
+    Pedidos addOrder(Pedidos pedidos);
 
     //get order by id
-    Order getOrder(Integer id);
+    Pedidos getOrder(Integer id);
 
     //delete order
     void deleteOrder(Integer id); //throws AssociationExistsException, OrderNotFoundException;
 
     //update order
-    Order updateOrder(Integer id);
+    Pedidos updateOrder(Integer id);
 
     //list orders
-    List<Order> listOrders();
+    List<Pedidos> listOrders();
 }
