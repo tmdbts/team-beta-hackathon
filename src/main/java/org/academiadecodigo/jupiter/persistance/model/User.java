@@ -1,7 +1,7 @@
 package org.academiadecodigo.jupiter.persistance.model;
 
 
-import org.academiadecodigo.jupiter.persistance.model.chart.Chart;
+import org.academiadecodigo.jupiter.persistance.model.chart.Cart;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -9,14 +9,15 @@ import java.util.List;
 
 @Entity
 @Table(name = "user")
-public class User extends AbstractModel{
+public class User extends AbstractModel {
 
     private String firstName;
     private String lastName;
     private String email;
     private String phone;
+    private String address;
 
-    /*@OneToMany(
+    @OneToMany(
             // propagate changes on user entity to chart entities
             cascade = {CascadeType.ALL},
 
@@ -30,10 +31,7 @@ public class User extends AbstractModel{
             // fetch chart from database together with user
             fetch = FetchType.EAGER
     )
-    private List<Chart> chartList = new ArrayList<>();*/
-
-    @OneToOne(mappedBy = "user")
-    private Chart chart;
+    private List<Cart> cartList = new ArrayList<>();
 
     public String getFirstName() {
         return firstName;
@@ -67,13 +65,27 @@ public class User extends AbstractModel{
         this.phone = phone;
     }
 
-
-    public Chart getChart() {
-        return chart;
+    public String getAddress() {
+        return address;
     }
 
-    public void setChart(Chart chart) {
-        this.chart = chart;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
+    public List<Cart> getCartList() {
+        return cartList;
+    }
+
+    public void addToCartList(Cart cart) {
+
+        cartList.add(cart);
+        cart.setUser(this);
+    }
+
+    public void removeFromCartList(Cart cart) {
+
+        cartList.remove(cart);
+        cart.setUser(null);
+    }
 }

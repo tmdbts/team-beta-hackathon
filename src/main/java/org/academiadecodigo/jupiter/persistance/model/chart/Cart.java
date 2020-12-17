@@ -7,11 +7,11 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "chart")
+@Table(name = "cart")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Chart extends AbstractModel {
+public class Cart extends AbstractModel {
 
-    @OneToOne
+    @ManyToOne
     private User user;
 
     @OneToMany
@@ -30,23 +30,25 @@ public class Chart extends AbstractModel {
     }
 
     public void addOrder(Order order) {
+
         orders.add(order);
-        order.setChart(this);
+        order.setCart(this);
     }
 
     public void removeOrder(Order order) {
+
         orders.remove(order);
-        order.setChart(null);
+        order.setCart(null);
     }
 
     public double getTotalPrice() {
+
         double chartPrice = 0;
+
         for (Order o : orders) {
             chartPrice += o.getPrice();
         }
+
         return chartPrice;
     }
-
-
-
 }

@@ -16,10 +16,8 @@ public interface OrderService {
     void deleteOrder(Integer id); //throws AssociationExistsException, OrderNotFoundException;
 
     //update order
-    Order updateOrder (Integer id);
+    Order updateOrder(Integer id);
 
     //list orders
     List<Order> listOrders();
-
-
 }

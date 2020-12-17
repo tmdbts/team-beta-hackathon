@@ -7,8 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class JpaUserDao extends GenericJpaDao<User> implements UserDao {
 
-    public JpaUserDao(){
+    public JpaUserDao() {
         super(User.class);
     }
-
 }

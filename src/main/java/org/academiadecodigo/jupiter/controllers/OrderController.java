@@ -19,34 +19,46 @@ public class OrderController {
 
     OrderService orderService;
 
-
     // Can serve URLs like http://www.someserver.org/someapp/hello?name=catarina
     @RequestMapping(method = RequestMethod.GET, value = "/{uid}")
     public String loadRecipes(Model model, @RequestParam("rcid") String rcid, @RequestParam("brid") String brcid, @PathVariable("uid") Integer uid) {
+
+        //Falta trtar casos NULl
         List<Integer> recipesIds = stringArraytoInt(rcid);
         List<Integer> blackListedIds = stringArraytoInt(brcid);
-        List<Recipe> recipesList = orderService.getRecipes(recipesIds,blackListedIds);
+//        List<Recipe> recipesList = orderService.getRecipes(recipesIds, blackListedIds);
+//        List<Recipe> recipesList = orderService.listOrders(recipesIds, blackListedIds);
+
+//        TODO: Add types
+
         model.addAttribute("recipes", recipesList);
+
+        if (recipesIds != null) {
+            model.addAttribute("recipes", recipesList);
+        }
+
         model.addAttribute("rcid", recipesIds);
-        model.addAttribute("brid",blackListedIds);
+        model.addAttribute("brid", blackListedIds);
+
         return "home";
     }
-
-
 
     @Autowired
     public void setOrderService(OrderService orderService) {
         this.orderService = orderService;
-
     }
 
-    private List<Integer> stringArraytoInt(String idsInString){
-        if (idsInString == "") return null;
+    private List<Integer> stringArraytoInt(String idsInString) {
+
+        if (idsInString.equals("")) return null;
+
         String[] array = idsInString.split(",");
         LinkedList<Integer> list = new LinkedList<>();
-        for(String number : array){
+
+        for (String number : array) {
             list.add(Integer.valueOf(number));
         }
+
         return list;
     }
 }
