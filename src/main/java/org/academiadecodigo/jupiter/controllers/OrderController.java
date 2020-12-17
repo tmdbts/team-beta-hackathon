@@ -1,8 +1,9 @@
 package org.academiadecodigo.jupiter.controllers;
 
 import org.academiadecodigo.jupiter.controllers.assembler.RecipeToDto;
+import org.academiadecodigo.jupiter.controllers.assembler.RecipeToPedidoDto;
 import org.academiadecodigo.jupiter.controllers.assembler.UserToDto;
-import org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto;
+import org.academiadecodigo.jupiter.persistance.model.dto.OrderCreationDto;
 import org.academiadecodigo.jupiter.persistance.model.dto.UserDto;
 import org.academiadecodigo.jupiter.persistance.model.recipe.Recipe;
 import org.academiadecodigo.jupiter.services.OrderService;
@@ -28,6 +29,12 @@ public class OrderController {
     RecipeToDto recipeToDto;
     UserService userService;
     UserToDto userToDto;
+    RecipeToPedidoDto recipeToPedidoDto;
+
+    @Autowired
+    public void setRecipeToPedidoDto(RecipeToPedidoDto recipeToPedidoDto) {
+        this.recipeToPedidoDto = recipeToPedidoDto;
+    }
 
     @Autowired
     public void setUserToDto(UserToDto userToDto) {
@@ -56,6 +63,7 @@ public class OrderController {
         List<Integer> recipesIds = stringArraytoInt(rcid);
         List<Integer> blackListedIds = stringArraytoInt(brcid);
 
+
         if (type.equals("vegan") || type.equals("healthy") || type.equals("balanced")) {
             recipeList = recipeService.generateRecipeList(recipesIds, blackListedIds, type);
         } else {
@@ -64,13 +72,14 @@ public class OrderController {
 
         List<Integer> listIds = getRecipesIds(recipeList);
         String rcid1 = getRCID(listIds);
-        List<RecipeDto> listConverted = recipeToDto.convert(recipeList);
-        UserDto user = userToDto.convert(userService.getUser(uid));
+        List<org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto> listConverted = recipeToDto.convert(recipeList);
 
+        UserDto user = userToDto.convert(userService.getUser(uid));
+        OrderCreationDto orderCreationDto = recipeToPedidoDto.convert(uid,1,listConverted);
         model.addAttribute("userDto", user);
-        model.addAttribute("recipeDtoList", listConverted);
         model.addAttribute("rcid", rcid1);
         model.addAttribute("brid", blackListedIds);
+        model.addAttribute("form", orderCreationDto);
 
         return "index";
     }

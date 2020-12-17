@@ -3,7 +3,6 @@ package org.academiadecodigo.jupiter.services;
 import org.academiadecodigo.jupiter.persistance.dao.RecipeDao;
 import org.academiadecodigo.jupiter.persistance.model.AbstractModel;
 import org.academiadecodigo.jupiter.persistance.model.recipe.Recipe;
-import org.academiadecodigo.jupiter.persistance.model.recipe.RecipeType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,6 @@
 package org.academiadecodigo.jupiter.controllers;
 
 import org.academiadecodigo.jupiter.controllers.assembler.RecipeToDto;
-import org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto;
 import org.academiadecodigo.jupiter.persistance.model.recipe.Recipe;
 import org.academiadecodigo.jupiter.services.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +31,7 @@ public class RecipesController {
     public String showOrder(@PathVariable Integer id, Model model) {
 
         Recipe recipe = recipeService.get(id);
-        RecipeDto recipeDto = recipeToDto.convert(recipe);
+        org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto recipeDto = recipeToDto.convert(recipe);
 
         model.addAttribute(recipeDto);
 
