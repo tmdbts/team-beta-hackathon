@@ -1,7 +1,13 @@
 package org.academiadecodigo.jupiter.controllers;
 
+import org.academiadecodigo.jupiter.controllers.assembler.RecipeToDto;
+import org.academiadecodigo.jupiter.controllers.assembler.UserToDto;
+import org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto;
+import org.academiadecodigo.jupiter.persistance.model.dto.UserDto;
 import org.academiadecodigo.jupiter.persistance.model.recipe.Recipe;
 import org.academiadecodigo.jupiter.services.OrderService;
+import org.academiadecodigo.jupiter.services.RecipeService;
+import org.academiadecodigo.jupiter.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,29 +24,50 @@ import java.util.List;
 public class OrderController {
 
     OrderService orderService;
+    RecipeService recipeService;
+    RecipeToDto recipeToDto;
+    UserService userService;
+    UserToDto userToDto;
 
-    // Can serve URLs like http://www.someserver.org/someapp/hello?name=catarina
+    @Autowired
+    public void setUserToDto(UserToDto userToDto) {
+        this.userToDto = userToDto;
+    }
+
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
+    @Autowired
+    public void setRecipeToDto(RecipeToDto recipeToDto) {
+        this.recipeToDto = recipeToDto;
+    }
+
+    @Autowired
+    public void setRecipeService(RecipeService recipeService) {
+        this.recipeService = recipeService;
+    }
+
     @RequestMapping(method = RequestMethod.GET, value = "/{uid}")
-    public String loadRecipes(Model model, @RequestParam("rcid") String rcid, @RequestParam("brid") String brcid, @PathVariable("uid") Integer uid) {
-
-        //Falta trtar casos NULl
+    public String loadRecipes(Model model, @RequestParam("rcid") String rcid, @RequestParam("brid") String brcid, @PathVariable("uid") Integer uid, @RequestParam("type") String type) {
+        List<Recipe> recipeList = new LinkedList<>();
         List<Integer> recipesIds = stringArraytoInt(rcid);
         List<Integer> blackListedIds = stringArraytoInt(brcid);
-//        List<Recipe> recipesList = orderService.getRecipes(recipesIds, blackListedIds);
-//        List<Recipe> recipesList = orderService.listOrders(recipesIds, blackListedIds);
-
-//        TODO: Add types
-
-        model.addAttribute("recipes", recipesList);
-
-        if (recipesIds != null) {
-            model.addAttribute("recipes", recipesList);
+        if (type.equals("vegan") || type.equals("healthy") || type.equals("balanced")) {
+            recipeList = recipeService.generateRecipes(recipesIds, blackListedIds, type);
+        } else {
+            recipeList = recipeService.generateRecipes(recipesIds, blackListedIds);
         }
-
-        model.addAttribute("rcid", recipesIds);
+        List<Integer> listIds = getRecipesIds(recipeList);
+        String rcid1 = getRCID(listIds);
+        List<RecipeDto> listConverted = recipeToDto.convert(recipeList);
+        UserDto user = userToDto.convert(userService.getUser(uid));
+        model.addAttribute("user", user);
+        model.addAttribute("recipes", listConverted);
+        model.addAttribute("rcid", rcid1);
         model.addAttribute("brid", blackListedIds);
-
-        return "home";
+        return "index";
     }
 
     @Autowired
@@ -50,7 +77,7 @@ public class OrderController {
 
     private List<Integer> stringArraytoInt(String idsInString) {
 
-        if (idsInString.equals("")) return null;
+        if (idsInString.equals("")) return new LinkedList<>();
 
         String[] array = idsInString.split(",");
         LinkedList<Integer> list = new LinkedList<>();
@@ -60,6 +87,22 @@ public class OrderController {
         }
 
         return list;
+    }
+
+    private List<Integer> getRecipesIds(List<Recipe> recipesList) {
+        LinkedList<Integer> listIds = new LinkedList<Integer>();
+        for (Recipe recipe : recipesList) {
+            listIds.add(recipe.getId());
+        }
+        return listIds;
+    }
+
+    private String getRCID(List<Integer> listOfIds) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Integer id : listOfIds) {
+            stringBuilder.append(id + ",");
+        }
+        return stringBuilder.toString();
     }
 }
 

@@ -3,6 +3,10 @@ package org.academiadecodigo.jupiter.controllers.assembler;
 import org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto;
 import org.academiadecodigo.jupiter.persistance.model.recipe.Recipe;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class RecipeToDto {
 
     public RecipeDto convert(Recipe recipe) {
@@ -17,4 +21,15 @@ public class RecipeToDto {
 
         return recipeDto;
     }
+
+
+
+    public List<RecipeDto> convert(List<Recipe> list){
+        List<RecipeDto> conversions = new ArrayList<>(list.size());
+        for (Recipe toConvert : list) {
+            conversions.add(convert(toConvert));
+        }
+        return conversions;
+    }
+
 }
