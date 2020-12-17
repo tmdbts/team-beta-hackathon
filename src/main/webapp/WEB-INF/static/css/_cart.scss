@@ -5,16 +5,71 @@
         .row {
             display: flex;
             align-items: center;
+            background-color: #dddddd;
+            border-radius: 10px;
 
             .img-div {
 
                 img {
                     width: 5rem;
+                    margin: 0 1rem;
                 }
             }
 
-            .quantities {
+            button {
+                cursor: pointer;
+                transition: .2s;
+            }
+
+            .description {
+                margin: 0 1rem;
+            }
+
+            .quantity-container {
                 display: flex;
+                align-items: center;
+
+                .circle {
+                    font-size: .7rem;
+                    padding: .2rem;
+                    border-radius: 50%;
+                }
+
+                .plus-minus {
+                    background-color: var(--color-quantity-btns);
+                    color: #ffffff;
+                    border: 2px solid var(--color-quantity-btns);
+
+                    &:hover {
+                        color: var(--color-quantity-btns);
+                        background-color: var(--color-background-quantity-btns);
+                    }
+                }
+
+                .remove {
+                    background-color: var(--color-remove-btn);
+                    color: #ffffff;
+                    border: 2px solid var(--color-remove-btn);
+                    margin: 1rem;
+
+                    &:hover {
+                        color: var(--color-remove-btn);
+                        background-color: var(--color-background-quantity-btns);
+                    }
+                }
+
+                .quantity {
+                    font-weight: bold;
+                    margin: 0 .5rem;
+                }
+            }
+
+            .finish {
+
+                .finish-btn {
+                    display: block;
+                    margin-left: 100%;
+                }
             }
         }
     }

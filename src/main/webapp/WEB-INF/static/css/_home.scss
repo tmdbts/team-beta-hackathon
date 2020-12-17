@@ -61,7 +61,7 @@
                 border: 2px solid var(--color-remove-btn);
 
                 &:hover {
-                    background-color: #ffffff;
+                    background-color: var(--color-background-quantity-btns);
                     color: var(--color-remove-btn);
                 }
             }
@@ -87,7 +87,7 @@
 
                     &:hover {
                         color: var(--color-quantity-btns);
-                        background-color: #ffffff;
+                        background-color: var(--color-background-quantity-btns);
                     }
                 }
             }
