@@ -9,9 +9,14 @@ public interface RecipeService {
 
     //generates a list of recipes of the same type
     List<Recipe> generateRecipeList(RecipeType recipeType);
+    List<Recipe> generateRecipeList(String recipeType);
 
-    //generates 1 random recipe
-    Recipe generateOneRandomRecipe(RecipeType recipeType);
+    List<Recipe> generateRecipeList();
+
+    List<Recipe> generateRecipeList(List<Integer> recipes, List<Integer> blacklist);
+
+    List<Recipe> generateRecipeList(List<Integer> recipes, List<Integer> blacklist, String recipeType);
 
     Recipe get(Integer id);
+
 }

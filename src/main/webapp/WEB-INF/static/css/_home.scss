@@ -1,8 +1,16 @@
+.page-title {
+    font-family: 'Poppins';
+    text-align: center;
+    font-size: 2rem;
+    margin: 2rem 0;
+}
+
 .home-page {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 1rem 2rem;
+
 
     .cards-container {
         display: grid;
@@ -44,15 +52,15 @@
             justify-content: space-between;
             align-items: center;
 
-
-            button {
+            button,
+            a {
                 cursor: pointer;
                 transition: .2s;
             }
 
-            button.rounded {
+            .rounded {
                 border-radius: 1rem;
-                padding: .4rem 1.5rem;
+                padding: .2rem 1.3rem;
             }
 
             .remove {

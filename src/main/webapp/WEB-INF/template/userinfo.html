@@ -2,17 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <thymeleaf th:replace="head :: head" />
+    <!--    <thymeleaf th:replace="head :: head" />-->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <title>JupiFood</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/483111cb5a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/main.css" modelType="text/css" />
 </head>
 
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="#" class="nav-link">Home</a></li>
-                <li><a href="#" class="nav-link">Cart</a></li>
-                <li><a href="#" class="nav-link">Logout</a></li>
+                <li><a th:href="@{home/}" class="nav-link">Home</a></li>
+                <li><a th:href="@{cart/}" class="nav-link">Cart</a></li>
+                <li class="active"><a th:href="@{profile/}" class="nav-link">Profile</a></li>
+                <li><a th:href="@{logout/}" class="nav-link">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -24,7 +32,10 @@
 
                     <div class="panel-heading">
                         <h4>User Profile</h4>
-
+                        <div class="col-sm-3 col-xs-6"><a>
+                                <button type="button" class="btn btn-warning">Edit</button>
+                            </a></div>
+                        <div class="clearfix"></div>
                     </div>
                     <div class="panel-body">
                         <div class="box box-info">
@@ -33,13 +44,15 @@
                                     <h4 style="color:#00b1b1;" th:text="${userDto.firstName} + ' ' + ${userDto.lastName}"></h4>
                                     <br>
                                 </div>
-                                <div class="col-sm-3 col-xs-6"><a><button class="col-sm-6">Edit</button></a></div>
-                                <div class="clearfix"></div>
+                                <!-- <div class="col-sm-3 col-xs-6"><a>
+                                        <button class="col-sm-6">Edit</button>
+                                    </a></div>
+                                <div class="clearfix"></div> -->
                                 <hr style="margin:5px 0 5px 0;">
 
 
                                 <div class="col-sm-6 col-xs-6 tita">First Name:</div>
-                                <div class="col-sm-3 col-xs-6" th:text="${userDto.firstName}">Prasad</div>
+                                <div class="col-sm-3 col-xs-6" th:text="${userDto.firstName}"></div>
                                 <div class="clearfix"></div>
                                 <div class="bot-border"></div>
 

@@ -45,8 +45,8 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public void deleteUser(Integer id) {
-    }//throws AssociationExistsException, UserNotFoundException {
+    public void deleteUser(Integer id) {}//throws AssociationExistsException, UserNotFoundException {
+
 
     @Override
     public List<User> listUsers() {
