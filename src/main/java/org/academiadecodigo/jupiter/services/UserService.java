@@ -1,5 +1,7 @@
 package org.academiadecodigo.jupiter.services;
 
+import org.academiadecodigo.jupiter.persistance.model.User;
+
 import java.util.List;
 
 public interface UserService {

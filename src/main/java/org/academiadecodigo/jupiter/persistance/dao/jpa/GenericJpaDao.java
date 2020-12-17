@@ -72,14 +72,16 @@ public abstract class GenericJpaDao<T extends Model> implements Dao<T>{
     }
 
 
-    public List<T> findAll() {
+
+//NOT FUNCTIONNAL YET TO BE PARAMETERED
+    public List<T> shuffleRecipe(List<Integer>recipeIds, List<Integer>blacklistIds) {
 
         CriteriaQuery<T> criteriaQuery = em.getCriteriaBuilder().createQuery(modelType);
         Root<T> root = criteriaQuery.from(modelType);
         return em.createQuery(criteriaQuery).getResultList();
 
         // Using JPA
-        // return em.createQuery( "from " + modelType.getSimpleName(), modelType).getResultList();
+         //  return em.createQuery( "from " + modelType.getSimpleName(), modelType).getResultList();
 
 
 

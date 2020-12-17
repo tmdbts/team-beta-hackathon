@@ -1,5 +1,7 @@
 package org.academiadecodigo.jupiter.persistance.dao;
 
+import org.academiadecodigo.jupiter.persistance.model.Model;
+
 import java.util.List;
 
 public interface Dao<T extends Model> {

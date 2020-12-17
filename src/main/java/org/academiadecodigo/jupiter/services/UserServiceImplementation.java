@@ -1,31 +1,29 @@
 package org.academiadecodigo.jupiter.services;
 
+import org.academiadecodigo.jupiter.persistance.dao.OrderDao;
+import org.academiadecodigo.jupiter.persistance.dao.UserDao;
 import org.academiadecodigo.jupiter.persistance.model.User;
-
-import javax.swing.plaf.UIResource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.util.List;
 
+@Service
 public class UserServiceImplementation implements UserService {
 
     private UserDao userDao;
     private OrderDao orderDao;
 
-
-    public UserDao getUserDao() {
-        return userDao;
-    }
-
+@Autowired
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
     }
 
-    public OrderDao getOrderDao() {
-        return orderDao;
-    }
 
+@Autowired
     public void setOrderDao(OrderDao orderDao) {
         this.orderDao = orderDao;
     }
+
 
     @Override
     public User getUser(Integer id) {
@@ -37,6 +35,7 @@ public class UserServiceImplementation implements UserService {
     public List<Order> getUserOrders(Integer id) throws UserNotFoundException {
         return null;
     }
+
 
     @Override
     public User saveUser(User user) {
