@@ -8,11 +8,6 @@ import java.util.List;
 public interface RecipeService {
 
     //generates a list of recipes of the same type
-    List<Recipe> generateRecipeList (RecipeType recipeType);
-
-
-    //generates 1 random recipe
-    Recipe generateOneRandomRecipe (RecipeType recipeType);
-
+    List<Recipe> generateRecipeList (String recipeType);
 
 }

@@ -5,7 +5,7 @@ import org.academiadecodigo.jupiter.persistance.model.chart.Order;
 
 import java.util.List;
 
-public class OrderServiceImplementation implements OrderService{
+public class OrderServiceImplementation implements OrderService {
 
     private OrderDao orderDao;
 
@@ -16,7 +16,7 @@ public class OrderServiceImplementation implements OrderService{
 
     @Override
     public Order addOrder(Order order) {
-
+        return order;
     }
 
     @Override
@@ -25,7 +25,8 @@ public class OrderServiceImplementation implements OrderService{
     }
 
     @Override
-    public void deleteOrder(Integer id){} // throws AssociationExistsException, OrderNotFoundException
+    public void deleteOrder(Integer id) {
+    } // throws AssociationExistsException, OrderNotFoundException
 
     @Override
     public Order updateOrder(Integer id) {
