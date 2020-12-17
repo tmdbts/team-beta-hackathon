@@ -1,5 +1,12 @@
 .cart-page {
 
+    .page-title {
+        font-family: 'Poppins';
+        text-align: center;
+        font-size: 2rem;
+        margin: 2rem 0;
+    }
+
     .container {
 
         .row {
@@ -7,6 +14,7 @@
             align-items: center;
             background-color: #dddddd;
             border-radius: 10px;
+            // justify-content: space-between;
 
             .img-div {
 
@@ -23,6 +31,7 @@
 
             .description {
                 margin: 0 1rem;
+                flex: 1;
             }
 
             .quantity-container {
@@ -64,12 +73,21 @@
                 }
             }
 
-            .finish {
+        }
 
-                .finish-btn {
-                    display: block;
-                    margin-left: 100%;
-                }
+        .finish {
+            text-align: right;
+
+            .finish-btn {
+                cursor: pointer;
+                transition: .2s;
+                margin-top: 2rem;
+                border-radius: 1rem;
+                padding: .4rem 1.5rem;
+                border: none;
+                background-color: #FFD166;
+                color: #000000;
+                font-weight: bold;
             }
         }
     }
