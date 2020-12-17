@@ -51,22 +51,27 @@ public class OrderController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/{uid}")
     public String loadRecipes(Model model, @RequestParam("rcid") String rcid, @RequestParam("brid") String brcid, @PathVariable("uid") Integer uid, @RequestParam("type") String type) {
+
         List<Recipe> recipeList = new LinkedList<>();
         List<Integer> recipesIds = stringArraytoInt(rcid);
         List<Integer> blackListedIds = stringArraytoInt(brcid);
+
         if (type.equals("vegan") || type.equals("healthy") || type.equals("balanced")) {
-            recipeList = recipeService.generateRecipes(recipesIds, blackListedIds, type);
+            recipeList = recipeService.generateRecipeList(recipesIds, blackListedIds, type);
         } else {
-            recipeList = recipeService.generateRecipes(recipesIds, blackListedIds);
+            recipeList = recipeService.generateRecipeList(recipesIds, blackListedIds);
         }
+
         List<Integer> listIds = getRecipesIds(recipeList);
         String rcid1 = getRCID(listIds);
         List<RecipeDto> listConverted = recipeToDto.convert(recipeList);
         UserDto user = userToDto.convert(userService.getUser(uid));
+
         model.addAttribute("userDto", user);
         model.addAttribute("recipeDtoList", listConverted);
         model.addAttribute("rcid", rcid1);
         model.addAttribute("brid", blackListedIds);
+
         return "index";
     }
 
@@ -90,18 +95,24 @@ public class OrderController {
     }
 
     private List<Integer> getRecipesIds(List<Recipe> recipesList) {
+
         LinkedList<Integer> listIds = new LinkedList<Integer>();
+
         for (Recipe recipe : recipesList) {
             listIds.add(recipe.getId());
         }
+
         return listIds;
     }
 
     private String getRCID(List<Integer> listOfIds) {
+
         StringBuilder stringBuilder = new StringBuilder();
+
         for (Integer id : listOfIds) {
             stringBuilder.append(id + ",");
         }
+        
         return stringBuilder.toString();
     }
 }

@@ -1,7 +1,7 @@
 package org.academiadecodigo.jupiter.services;
 
 import org.academiadecodigo.jupiter.persistance.model.User;
-import org.academiadecodigo.jupiter.persistance.model.chart.Order;
+import org.academiadecodigo.jupiter.persistance.model.cart.Pedidos;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ public interface UserService {
     User getUser(Integer id);
 
     //get user orders by using userId
-    List<Order> getUserOrders(Integer id); // throws UserNotFoundException;
+    List<Pedidos> getUserOrders(Integer id); // throws UserNotFoundException;
 
     //save user
     User saveUser(User user);

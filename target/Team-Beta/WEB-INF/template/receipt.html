@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <thymeleaf th:replace="head :: head" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a th:href="@{home/}" class="nav-link">Home</a></li>
+                <li><a th:href="@{cart/}" class="nav-link">Cart</a></li>
+                <li><a th:href="@{profile/}" class="nav-link">Profile</a></li>
+                <li><a th:href="@{logout/}" class="nav-link">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="receipt-image">
+        <div class="overlay">
+            <h1 th:text="${recipe.name}"></h1>
+            <br>
+        </div>
+    </section>
+    <main class="receipt-page">
+        <div class="grid-container">
+            <div class="preparation">
+                <h3 class="title">Preparation</h3>
+                <p class="description" th:text="${recipe.description}"></p>
+            </div>
+            <div class="right">
+                <div class="engredients">
+                    <h4 class="title">Ingredients</h4>
+                    <p class="description" th:text="${recipe.ingredients}"></p>
+                </div>
+                <div class="category">
+                    <h4 class="title">Category</h4>
+                    <p class="description" th:text="${recipe.category}"></p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

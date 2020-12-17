@@ -1,7 +1,7 @@
 package org.academiadecodigo.jupiter.persistance.model;
 
 
-import org.academiadecodigo.jupiter.persistance.model.chart.Cart;
+import org.academiadecodigo.jupiter.persistance.model.cart.Cart;
 
 import javax.persistence.*;
 import java.util.ArrayList;

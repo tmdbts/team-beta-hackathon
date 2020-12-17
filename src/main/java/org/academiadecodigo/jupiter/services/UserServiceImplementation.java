@@ -1,55 +1,61 @@
 package org.academiadecodigo.jupiter.services;
 
-import org.academiadecodigo.jupiter.persistance.dao.OrderDao;
+import org.academiadecodigo.jupiter.persistance.dao.CartDao;
 import org.academiadecodigo.jupiter.persistance.dao.UserDao;
 import org.academiadecodigo.jupiter.persistance.model.User;
-import org.academiadecodigo.jupiter.persistance.model.chart.Order;
+import org.academiadecodigo.jupiter.persistance.model.cart.Pedidos;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 
+@Service
 public class UserServiceImplementation implements UserService {
 
     private UserDao userDao;
-    private OrderDao orderDao;
+    private CartDao cartDao;
 
     public UserDao getUserDao() {
         return userDao;
     }
 
+    public CartDao getCartDao() {
+        return cartDao;
+    }
+
+    @Autowired
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
     }
 
-    public OrderDao getOrderDao() {
-        return orderDao;
-    }
-
-    public void setOrderDao(OrderDao orderDao) {
-        this.orderDao = orderDao;
+    @Autowired
+    public void setCartDao(CartDao cartDao) {
+        this.cartDao = cartDao;
     }
 
     @Override
     public User getUser(Integer id) {
-
-        return null;
+        return userDao.findById(id);
     }
 
+    //TODO : I AM LOST BETWEEN CART AND ORDERS
     @Override
-    public List<Order> getUserOrders(Integer id) {//throws UserNotFoundException {
+    public List<Pedidos> getUserOrders(Integer id) {
         return null;
     }
 
     @Override
     public User saveUser(User user) {
-        return null;
+        return userDao.saveOrUpdate(user);
     }
 
     @Override
-    public void deleteUser(Integer id) {}//throws AssociationExistsException, UserNotFoundException {
-
+    public void deleteUser(Integer id) {
+        userDao.delete(id);
+    }//throws AssociationExistsException, UserNotFoundException {
 
     @Override
     public List<User> listUsers() {
-        return null;
+        return userDao.findAll();
     }
 }

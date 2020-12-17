@@ -1,4 +1,4 @@
-package org.academiadecodigo.jupiter.persistance.model.chart;
+package org.academiadecodigo.jupiter.persistance.model.cart;
 
 import org.academiadecodigo.jupiter.persistance.model.AbstractModel;
 import org.academiadecodigo.jupiter.persistance.model.User;
@@ -15,7 +15,7 @@ public class Cart extends AbstractModel {
     private User user;
 
     @OneToMany
-    private List<Order> orders;
+    private List<Pedidos> pedidos;
 
     public User getUser() {
         return user;
@@ -25,30 +25,30 @@ public class Cart extends AbstractModel {
         this.user = user;
     }
 
-    public List<Order> getOrders() {
-        return orders;
+    public List<Pedidos> getOrders() {
+        return pedidos;
     }
 
-    public void addOrder(Order order) {
+    public void addOrder(Pedidos pedidos) {
 
-        orders.add(order);
-        order.setCart(this);
+        this.pedidos.add(pedidos);
+        pedidos.setCart(this);
     }
 
-    public void removeOrder(Order order) {
+    public void removeOrder(Pedidos pedidos) {
 
-        orders.remove(order);
-        order.setCart(null);
+        this.pedidos.remove(pedidos);
+        pedidos.setCart(null);
     }
 
     public double getTotalPrice() {
 
-        double chartPrice = 0;
+        double cartPrice = 0;
 
-        for (Order o : orders) {
-            chartPrice += o.getPrice();
+        for (Pedidos o : pedidos) {
+            cartPrice += o.getPrice();
         }
 
-        return chartPrice;
+        return cartPrice;
     }
 }

@@ -1,13 +1,14 @@
-package org.academiadecodigo.jupiter.persistance.model.chart;
+package org.academiadecodigo.jupiter.persistance.model.cart;
 
 import org.academiadecodigo.jupiter.persistance.model.AbstractModel;
 import org.academiadecodigo.jupiter.persistance.model.recipe.Recipe;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "order")
-public class Order extends AbstractModel {
+@Table(name = "pedidos")
+public class Pedidos extends AbstractModel implements Serializable {
 
     @EmbeddedId
     private OrderKey key;

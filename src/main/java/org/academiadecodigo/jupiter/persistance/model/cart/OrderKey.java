@@ -1,4 +1,4 @@
-package org.academiadecodigo.jupiter.persistance.model.chart;
+package org.academiadecodigo.jupiter.persistance.model.cart;
 
 import javax.persistence.Embeddable;
 import java.io.Serializable;
@@ -7,9 +7,9 @@ import java.util.Objects;
 @Embeddable
 public class OrderKey implements Serializable {
 
-    private Integer cartId;
+    protected Integer cartId;
 
-    private Integer recipeId;
+    protected Integer recipeId;
 
     public Integer getCartId() {
         return cartId;
@@ -45,4 +45,5 @@ public class OrderKey implements Serializable {
     public int hashCode() {
         return Objects.hash(cartId, recipeId);
     }
+
 }

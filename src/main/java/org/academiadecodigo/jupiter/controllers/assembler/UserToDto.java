@@ -2,10 +2,11 @@ package org.academiadecodigo.jupiter.controllers.assembler;
 
 import org.academiadecodigo.jupiter.persistance.model.User;
 import org.academiadecodigo.jupiter.persistance.model.dto.UserDto;
-
+import org.springframework.stereotype.Component;
 import java.util.LinkedList;
 import java.util.List;
 
+@Component
 public class UserToDto {
 
     public UserDto convert(User user) {
