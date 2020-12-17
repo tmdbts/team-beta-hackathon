@@ -15,7 +15,7 @@ public class Ingredient extends AbstractModel {
     private double price = 0;
     private String name;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER,  mappedBy = "ingredientList")
     private List<Recipe> recipesList;
 
     public double getPrice() {

@@ -10,12 +10,12 @@ import javax.persistence.Table;
 import java.util.List;
 
 @Entity
-@Table(name = "recipe_type")
+@Table(name = "type")
 public class RecipeType extends AbstractModel {
 
     private String type;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "types")
     List<Recipe> recipeList;
 
     public String getType() {
