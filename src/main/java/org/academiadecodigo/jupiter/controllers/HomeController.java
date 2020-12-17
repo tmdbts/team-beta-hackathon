@@ -32,7 +32,7 @@ public class HomeController {
         List<Recipe> randomRecipes = recipeService.generateRecipeList();
         String recipesIds = getRecipesIds(randomRecipes);
 
-        return "redirect:/order/" + id + "?rcid=" + recipesIds + "&brid=";
+        return "redirect:/order/" + id + "?rcid=" + recipesIds;
     }
 
     @Autowired
