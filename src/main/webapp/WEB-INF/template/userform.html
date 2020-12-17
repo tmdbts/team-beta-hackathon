@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!--    <thymeleaf th:replace="head :: head" />-->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <title>JupiFood</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/483111cb5a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/main.css" modelType="text/css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a th:href="@{home/}" class="nav-link">Home</a></li>
+                <li><a th:href="@{cart/}" class="nav-link">Cart</a></li>
+                <li class="active"><a th:href="@{profile/}" class="nav-link">Profile</a></li>
+                <li><a th:href="@{logout/}" class="nav-link">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="userform-page">
+        <form>
+
+            <div class="group">
+                <input type="text" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>First Name</label>
+            </div>
+
+            <div class="group">
+                <input type="text" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Last Name</label>
+            </div>
+
+            <div class="group">
+                <input type="text" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Email</label>
+            </div>
+
+            <div class="group">
+                <input type="text" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Phone Number</label>
+            </div>
+
+            <div class="group">
+                <input type="text" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Address</label>
+            </div>
+
+            <a>
+                <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
+            </a>
+        </form>
+
+
+    </main>
+
+
+</body>
+
+</html>
