@@ -7,6 +7,15 @@ public class UserDto {
     private String email;
     private String phone;
     private Integer id;
+    private String address;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public String getFirstName() {
         return firstName;

@@ -23,6 +23,7 @@ public class Recipe extends AbstractModel {
 
     @ManyToMany
     @Fetch(value = FetchMode.SUBSELECT)
+    //Fazer método de passar Ingridients
     private List<Ingredient> ingredientList;
 
     public int getCookingTime() {

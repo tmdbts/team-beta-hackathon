@@ -12,6 +12,7 @@ public class UsertoDto {
         userDto.setId(user.getId());
         userDto.setLastName(user.getLastName());
         userDto.setPhone(user.getPhone());
+        userDto.setAdress(user.getAdress());
         return userDto;
     }
 }
