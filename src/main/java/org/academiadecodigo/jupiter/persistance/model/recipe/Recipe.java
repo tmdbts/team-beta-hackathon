@@ -12,6 +12,7 @@ import java.util.List;
 @Table(name = "recipe")
 public class Recipe extends AbstractModel {
 
+    private String name;
     private int cookingTime;
     private String description;
     private String photoUrl;
@@ -24,6 +25,14 @@ public class Recipe extends AbstractModel {
     @ManyToMany
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Ingredient> ingredientList;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getCookingTime() {
         return cookingTime;

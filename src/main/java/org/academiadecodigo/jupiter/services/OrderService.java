@@ -13,7 +13,7 @@ public interface OrderService {
     Order getOrder(Integer id);
 
     //delete order
-    void deleteOrder(Integer id) throws AssociationExistsException, OrderNotFoundException;
+    void deleteOrder(Integer id); //throws AssociationExistsException, OrderNotFoundException;
 
     //update order
     Order updateOrder (Integer id);

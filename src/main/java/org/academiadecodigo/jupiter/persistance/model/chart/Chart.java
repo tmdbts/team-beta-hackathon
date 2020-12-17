@@ -2,6 +2,7 @@ package org.academiadecodigo.jupiter.persistance.model.chart;
 
 import org.academiadecodigo.jupiter.persistance.model.AbstractModel;
 import org.academiadecodigo.jupiter.persistance.model.User;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Chart extends AbstractModel {
 
-    @ManyToOne
+    @OneToOne
     private User user;
 
     public User getUser() {
@@ -20,4 +21,5 @@ public class Chart extends AbstractModel {
     public void setUser(User user) {
         this.user = user;
     }
+
 }
