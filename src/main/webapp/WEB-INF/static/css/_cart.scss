@@ -1,0 +1,21 @@
+.cart-page {
+
+    .container {
+
+        .row {
+            display: flex;
+            align-items: center;
+
+            .img-div {
+
+                img {
+                    width: 5rem;
+                }
+            }
+
+            .quantities {
+                display: flex;
+            }
+        }
+    }
+}

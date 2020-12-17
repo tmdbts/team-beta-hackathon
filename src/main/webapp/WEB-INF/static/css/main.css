@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;700&display=swap");
 :root {
   font-size: 16px;
 }
@@ -5,6 +6,10 @@
 * {
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
 header {
@@ -42,6 +47,11 @@ main {
   padding: 1.5rem;
 }
 
+html {
+  --color-quantity-btns: #118AB2;
+  --color-remove-btn: #ff0000;
+}
+
 .home-page {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -68,6 +78,10 @@ main {
   text-align: center;
   background-color: #dddddd;
   border-radius: 10px;
+}
+
+.home-page .cards-container .img-container img {
+  width: 100%;
 }
 
 .home-page .cards-container .description h3 {
@@ -107,14 +121,14 @@ main {
 }
 
 .home-page .cards-container .buttons-container .remove {
-  background-color: #ff0000;
+  background-color: var(--color-remove-btn);
   color: #ffffff;
-  border: 2px solid #ff0000;
+  border: 2px solid var(--color-remove-btn);
 }
 
 .home-page .cards-container .buttons-container .remove:hover {
   background-color: #ffffff;
-  color: #ff0000;
+  color: var(--color-remove-btn);
 }
 
 .home-page .cards-container .buttons-container .quantity-container {
@@ -124,12 +138,6 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.home-page .cards-container .buttons-container .quantity-container input[type=number]::-webkit-inner-spin-button,
-.home-page .cards-container .buttons-container .quantity-container input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
 }
 
 .home-page .cards-container .buttons-container .quantity-container .circle {
@@ -143,13 +151,13 @@ main {
 }
 
 .home-page .cards-container .buttons-container .quantity-container .quantity {
-  background-color: #118AB2;
+  background-color: var(--color-quantity-btns);
   color: #ffffff;
-  border: 2px solid #118AB2;
+  border: 2px solid var(--color-quantity-btns);
 }
 
 .home-page .cards-container .buttons-container .quantity-container .quantity:hover {
-  color: #118AB2;
+  color: var(--color-quantity-btns);
   background-color: #ffffff;
 }
 
@@ -172,14 +180,13 @@ main {
 }
 
 .receipt-image h1 {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Poppins', cursive;
   font-size: 80px;
   margin-bottom: 30px;
 }
 
 .receipt-image h3,
 .receipt-image p {
-  font-family: 'Open Sans', sans-serif;
   margin-bottom: 30px;
 }
 
@@ -208,6 +215,25 @@ main {
 
 .receipt-page .grid-container .right .category .title {
   font-size: 1.5rem;
+}
+
+.cart-page .container .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cart-page .container .row .img-div img {
+  width: 5rem;
+}
+
+.cart-page .container .row .quantities {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 @media only screen and (min-width: 1275px) {
