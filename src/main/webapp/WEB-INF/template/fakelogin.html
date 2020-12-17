@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!--    <thymeleaf th:replace="head :: head" />-->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <title>JupiFood</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/483111cb5a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/main.css" modelType="text/css" />
+
+    <thymeleaf th:replace="head :: head" />
+</head>
+
+<body>
+    <div class="container">
+        <h2>Users List</h2>
+        <div th:if="${not #lists.isEmpty(listUsers)}">
+            <table class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Login</th>
+                </tr>
+                <tr th:each="customer : ${listUsers}">
+                    <td th:text="${customer.id}"></td>
+                    <td th:text="${customer.firstName}"></td>
+                    <td th:text="${customer.lastName}"></td>
+                    <td th:text="${customer.email}"></td>
+                    <td th:text="${customer.phone}"></td>
+                    <td th:text="${customer.address}"></td>
+                    <td><a th:href="@{'/home/' + ${customer.id}}"><button type="button" class="btn btn-primary">Login</button></a></td>
+
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</body>
+
+</html>
