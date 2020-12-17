@@ -16,7 +16,7 @@ public class User extends AbstractModel{
     private String email;
     private String phone;
 
-    /*@OneToMany(
+    @OneToMany(
             // propagate changes on user entity to chart entities
             cascade = {CascadeType.ALL},
 
@@ -30,10 +30,8 @@ public class User extends AbstractModel{
             // fetch chart from database together with user
             fetch = FetchType.EAGER
     )
-    private List<Chart> chartList = new ArrayList<>();*/
+    private List<Chart> chartList = new ArrayList<>();
 
-    @OneToOne(mappedBy = "user")
-    private Chart chart;
 
     public String getFirstName() {
         return firstName;
@@ -68,12 +66,8 @@ public class User extends AbstractModel{
     }
 
 
-    public Chart getChart() {
-        return chart;
-    }
 
-    public void setChart(Chart chart) {
-        this.chart = chart;
-    }
+
+
 
 }

@@ -11,7 +11,7 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Chart extends AbstractModel {
 
-    @OneToOne
+    @ManyToOne
     private User user;
 
     @OneToMany
@@ -46,7 +46,5 @@ public class Chart extends AbstractModel {
         }
         return chartPrice;
     }
-
-
 
 }
