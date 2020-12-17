@@ -74,6 +74,15 @@ public class Recipe extends AbstractModel {
         this.ingredientList = ingredientList;
     }
 
+    //Returns the price of the recipe for one person
+    public double getRecipePrice() {
+        double recipePrice = 0;
+        for (Ingredient i : ingredientList) {
+            recipePrice += i.getPrice();
+        }
+        return recipePrice;
+    }
+
     @Override
     public String toString() {
         return "Recipe{" +
@@ -84,5 +93,8 @@ public class Recipe extends AbstractModel {
                 ", ingredientList=" + ingredientList +
                 '}';
     }
+
+
+
 
 }

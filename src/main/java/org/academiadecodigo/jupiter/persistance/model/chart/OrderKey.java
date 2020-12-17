@@ -7,9 +7,25 @@ import java.util.Objects;
 @Embeddable
 public class OrderKey implements Serializable {
 
-    private Long chartId;
+    private Integer chartId;
 
-    private Long recipeId;
+    private Integer recipeId;
+
+    public Integer getChartId() {
+        return chartId;
+    }
+
+    public void setChartId(Integer chartId) {
+        this.chartId = chartId;
+    }
+
+    public Integer getRecipeId() {
+        return recipeId;
+    }
+
+    public void setRecipeId(Integer recipeId) {
+        this.recipeId = recipeId;
+    }
 
     @Override
     public boolean equals(Object o) {
