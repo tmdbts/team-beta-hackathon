@@ -1,6 +1,9 @@
 package org.academiadecodigo.jupiter.services;
 
+import org.academiadecodigo.jupiter.persistance.dao.OrderDao;
+import org.academiadecodigo.jupiter.persistance.dao.UserDao;
 import org.academiadecodigo.jupiter.persistance.model.User;
+import org.academiadecodigo.jupiter.persistance.model.chart.Order;
 
 import javax.swing.plaf.UIResource;
 import java.util.List;
@@ -34,7 +37,7 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public List<Order> getUserOrders(Integer id) throws UserNotFoundException {
+    public List<Order> getUserOrders(Integer id) {//throws UserNotFoundException {
         return null;
     }
 
@@ -44,9 +47,9 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public void deleteUser(Integer id) throws AssociationExistsException, UserNotFoundException {
+    public void deleteUser(Integer id) {}//throws AssociationExistsException, UserNotFoundException {
 
-    }
+
 
     @Override
     public List<User> listUsers() {

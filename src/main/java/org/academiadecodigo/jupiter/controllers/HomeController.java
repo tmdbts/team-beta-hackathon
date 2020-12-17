@@ -1,9 +1,5 @@
 package org.academiadecodigo.jupiter.controllers;
 
-import org.academiadecodigo.jupiter.controllers.assembler.UsertoDto;
-import org.academiadecodigo.jupiter.persistance.model.User;
-import org.academiadecodigo.jupiter.persistance.model.dto.UserDto;
-import org.academiadecodigo.jupiter.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

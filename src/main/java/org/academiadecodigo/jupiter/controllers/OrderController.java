@@ -26,6 +26,8 @@ public class OrderController {
         //Falta trtar casos NULl
         List<Integer> recipesIds = stringArraytoInt(rcid);
         List<Integer> blackListedIds = stringArraytoInt(brcid);
+        List<Recipe> recipesList = orderService.getRecipes(recipesIds,blackListedIds);
+        model.addAttribute("recipes", recipesList);
         List<Recipe> recipesList = orderService.listOrders(recipesIds,blackListedIds);
         if (recipesIds != null) {
             model.addAttribute("recipes", recipesList);

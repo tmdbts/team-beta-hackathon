@@ -1,5 +1,11 @@
 package org.academiadecodigo.jupiter.services;
 
+import org.academiadecodigo.jupiter.persistance.dao.RecipeDao;
+import org.academiadecodigo.jupiter.persistance.model.recipe.Recipe;
+import org.academiadecodigo.jupiter.persistance.model.recipe.RecipeType;
+
+import java.util.List;
+
 public class RecipeServiceInplementation implements RecipeService{
 
     private RecipeDao recipeDao;
@@ -15,7 +21,7 @@ public class RecipeServiceInplementation implements RecipeService{
 
 
     @Override
-    public list<Recipe> generateRecipeList(RecipeType recipeType) {
+    public List<Recipe> generateRecipeList(RecipeType recipeType) {
         return null;
     }
 

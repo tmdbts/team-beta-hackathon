@@ -1,22 +1,22 @@
 package org.academiadecodigo.jupiter.services;
 
+import org.academiadecodigo.jupiter.persistance.dao.OrderDao;
+import org.academiadecodigo.jupiter.persistance.model.chart.Order;
+
 import java.util.List;
 
-public class OrderServiceImplementation implements OrderService{
+public class OrderServiceImplementation implements OrderService {
 
     private OrderDao orderDao;
-
-    public OrderDao getOrderDao() {
-        return orderDao;
-    }
 
     public void setOrderDao(OrderDao orderDao) {
         this.orderDao = orderDao;
     }
 
+
     @Override
     public Order addOrder(Order order) {
-        return null;
+        return order;
     }
 
     @Override
@@ -25,9 +25,8 @@ public class OrderServiceImplementation implements OrderService{
     }
 
     @Override
-    public void deleteOrder(Integer id) throws AssociationExistsException, OrderNotFoundException {
-
-    }
+    public void deleteOrder(Integer id) {
+    } // throws AssociationExistsException, OrderNotFoundException
 
     @Override
     public Order updateOrder(Integer id) {

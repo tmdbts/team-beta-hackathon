@@ -1,5 +1,7 @@
 package org.academiadecodigo.jupiter.services;
 
+import org.academiadecodigo.jupiter.persistance.model.chart.Order;
+
 import java.util.List;
 
 public interface OrderService {
@@ -11,7 +13,7 @@ public interface OrderService {
     Order getOrder(Integer id);
 
     //delete order
-    void deleteOrder(Integer id) throws AssociationExistsException, OrderNotFoundException;
+    void deleteOrder(Integer id); //throws AssociationExistsException, OrderNotFoundException;
 
     //update order
     Order updateOrder (Integer id);
