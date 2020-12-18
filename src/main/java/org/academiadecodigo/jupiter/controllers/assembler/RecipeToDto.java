@@ -1,6 +1,8 @@
 package org.academiadecodigo.jupiter.controllers.assembler;
 
+import org.academiadecodigo.jupiter.persistance.model.recipe.Ingredient;
 import org.academiadecodigo.jupiter.persistance.model.recipe.Recipe;
+import org.academiadecodigo.jupiter.persistance.model.recipe.RecipeType;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -18,6 +20,8 @@ public class RecipeToDto {
         recipeDto.setDescription(recipe.getDescription());
         recipeDto.setName(recipe.getName());
         recipeDto.setPhotoUrl(recipe.getPhotoUrl());
+        recipeDto.setTypes(generateStringType(recipe.getTypes()));
+      //  recipeDto.setIngredients(generateString(recipe.getIngredientList()));
 
         return recipeDto;
     }
@@ -32,5 +36,22 @@ public class RecipeToDto {
 
         return conversions;
     }
+
+    private String generateString(List<Ingredient> ingredientsList){
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Ingredient ingredient:ingredientsList){
+            stringBuilder.append(ingredient.getName() + " ");
+        }
+        return stringBuilder.toString();
+    }
+
+    private String generateStringType(List<RecipeType> ingredientsList){
+        StringBuilder stringBuilder = new StringBuilder();
+        for (RecipeType ingredient:ingredientsList){
+            stringBuilder.append(ingredient.getType() + " ");
+        }
+        return stringBuilder.toString();
+    }
+
 
 }
