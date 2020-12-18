@@ -60,13 +60,16 @@ public class OrderController {
     @RequestMapping(method = RequestMethod.GET, value = "/{uid}")
     public String loadRecipes(Model model, @RequestParam(name = "rcid", required = false) String rcid, @RequestParam(name = "brid", required = false) String brcid, @PathVariable(name = "uid", required = false) Integer uid, @RequestParam(name = "type", required = false) String type) {
 
-        System.out.println("Teste");
+        System.out.println("BRID1: " + brcid);
+        if (brcid==null) brcid = "";
+        if (brcid.equals(","));
 
+        System.out.println("BRID2: " + brcid);
         List<Recipe> recipeList = new LinkedList<>();
         List<Integer> recipesIds = stringArraytoInt(rcid);
         List<Integer> blackListedIds = stringArraytoInt(brcid);
 
-        System.out.println("Before ifs");
+        System.out.println("BRID3: " + brcid);
         if (type == null) type = "";
         if (type.equals("vegan") || type.equals("healthy") || type.equals("vegetarian")) {
             recipeList = recipeService.generateRecipeList(recipesIds, blackListedIds, type);
@@ -74,20 +77,21 @@ public class OrderController {
             recipeList = recipeService.generateRecipeList(recipesIds, blackListedIds);
         }
 
-        System.out.println("I am here");
+        System.out.println("BRID4: " + brcid);
         List<Integer> listIds = getRecipesIds(recipeList);
         List<RecipeDto> listConverted = recipeToDto.convert(recipeList);
-
         String rcid1 = getRCID(listIds);
         UserDto user = userToDto.convert(userService.getUser(uid));
         OrderCreationDto orderCreationDto = recipeToPedidoDto.convert(uid, 1, listConverted);
 
         System.out.println(rcid);
 
+        if (brcid==null) brcid = "";
+
         model.addAttribute("userDto", user);
         model.addAttribute("rcid", rcid1);
-        model.addAttribute("brid", blackListedIds);
-        model.addAttribute("pedidosDto", orderCreationDto);
+        model.addAttribute("brid", brcid);
+        model.addAttribute("list", orderCreationDto);
 
         return "index";
     }
@@ -106,6 +110,8 @@ public class OrderController {
         LinkedList<Integer> list = new LinkedList<>();
 
         for (String number : array) {
+            System.out.println("InsideMethod: " + number);
+            if (number.equals("")) break;
             list.add(Integer.valueOf(number));
         }
 

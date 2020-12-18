@@ -1,0 +1,27 @@
+@media only screen and (min-width: 1275px) {
+
+
+    header nav ul {
+        justify-content: flex-end;
+    }
+
+    main {
+        width: 75%;
+        margin: auto;
+    }
+
+    .receipt-page {
+
+        .grid-container {
+            grid-gap: 8rem;
+            grid-template-columns: minmax(150px, 65%) 1fr;
+        }
+    }
+
+    .receipt-image {
+
+        .overlay {
+            padding: 100px 0;
+        }
+    }
+}

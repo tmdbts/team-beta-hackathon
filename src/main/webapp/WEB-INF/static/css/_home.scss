@@ -12,9 +12,20 @@
     form {
         display: flex;
         justify-content: center;
+        align-items: center;
 
         .category-selector.middle {
             margin: 0 2rem;
+        }
+
+        .category-submit {
+            cursor: pointer;
+            margin-left: 1rem;
+            border-radius: 50%;
+            padding: .4rem;
+            border: none;
+            color: var(--color-home-category-submit-txt);
+            background-color: var(--color-home-category-submit-bg);
         }
     }
 
@@ -61,8 +72,6 @@
             .label {
                 font-weight: bold;
             }
-
-
         }
 
         .buttons-container {
@@ -125,13 +134,19 @@
     }
 
     .submit-container {
+        margin-top: 2rem;
         text-align: right;
 
         .submit-btn {
             cursor: pointer;
             transition: .2s;
             border-radius: 1rem;
-            padding: .2rem 1.3rem;
+            padding: .4rem 1.3rem;
+            border: none;
+            font-size: 1rem;
+            font-weight: bold;
+            background-color: var(--color-checkout-btn-bg);
+            color: var(--color-checkout-btn-txt);
         }
     }
 }

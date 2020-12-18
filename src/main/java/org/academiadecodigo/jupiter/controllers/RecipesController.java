@@ -33,7 +33,7 @@ public class RecipesController {
         Recipe recipe = recipeService.get(id);
         org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto recipeDto = recipeToDto.convert(recipe);
 
-        model.addAttribute(recipeDto);
+        model.addAttribute("recipe",recipeDto);
 
         return "recipe";
     }
