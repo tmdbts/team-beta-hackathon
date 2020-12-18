@@ -4,6 +4,7 @@ import org.academiadecodigo.jupiter.controllers.assembler.RecipeToDto;
 import org.academiadecodigo.jupiter.controllers.assembler.RecipeToPedidoDto;
 import org.academiadecodigo.jupiter.controllers.assembler.UserToDto;
 import org.academiadecodigo.jupiter.persistance.model.dto.OrderCreationDto;
+import org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto;
 import org.academiadecodigo.jupiter.persistance.model.dto.UserDto;
 import org.academiadecodigo.jupiter.persistance.model.recipe.Recipe;
 import org.academiadecodigo.jupiter.services.OrderService;
@@ -75,7 +76,8 @@ public class OrderController {
 
         System.out.println("I am here");
         List<Integer> listIds = getRecipesIds(recipeList);
-        List<org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto> listConverted = recipeToDto.convert(recipeList);
+        List<RecipeDto> listConverted = recipeToDto.convert(recipeList);
+
         String rcid1 = getRCID(listIds);
         UserDto user = userToDto.convert(userService.getUser(uid));
         OrderCreationDto orderCreationDto = recipeToPedidoDto.convert(uid, 1, listConverted);

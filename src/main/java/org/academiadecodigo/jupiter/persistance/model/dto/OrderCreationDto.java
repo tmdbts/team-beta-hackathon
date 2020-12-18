@@ -15,8 +15,6 @@ public class OrderCreationDto {
         pedidos = new LinkedList<>();
     }
 
-
-
     public void addPedido(PedidoDto pedido) {
         this.pedidos.add(pedido);
     }
@@ -28,4 +26,5 @@ public class OrderCreationDto {
     public void setPedidos(List<PedidoDto> pedidos) {
         this.pedidos = pedidos;
     }
+
 }

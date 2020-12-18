@@ -25,13 +25,28 @@
     </header>
 
     <h1 class="page-title">Home</h1>
-
+    <aside class="category-aside">
+        <form action="" method="POST">
+            <div class="category-selector">
+                <input type="checkbox" name="Healthy" id="healthy" value="healthy">
+                <label for="healthy">Healthy</label>
+            </div>
+            <div class="category-selector middle">
+                <input type="checkbox" name="Vegan" id="vegan" value="vegan">
+                <label for="vegan">Vegan</label>
+            </div>
+            <div class="category-selector">
+                <input type="checkbox" name="Vegetarian" id="vegetarian" value="vegetarian">
+                <label for="vegetarian">Vegetarian</label>
+            </div>
+        </form>
+    </aside>
     <main class="home-page">
         <form method="POST">
             <div class="cards-container">
-                <div class="card" th:each="pedidoDto, itemStat : ${form.pedidosDto}">
-                    <input hidden th:name="|pedidosDto[${itemStat.index}].userId|" th:value="${pedidoDto.getUserId()}" />
-                    <input hidden th:name="|pedidosDto[${itemStat.index}].recipeId|" th:value="${pedidoDto.getRecipeId()}" />
+                <div class="card" th:each="pedidoDto, itemStat : ${pedidosDto}">
+                    <input hidden th:name="|pedidoDto[${itemStat.index}].userId|" th:value="${pedidoDto.userId}" />
+                    <input hidden th:name="|pedidoDto[${itemStat.index}].recipeId|" th:value="${pedidoDto.recipe}" />
                     <div class="img-container">
                         <img th:src="${pedidoDto.recipe.photoUrl}" alt="receipt image">
                     </div>

@@ -44,9 +44,9 @@
     <main class="home-page">
         <form method="POST">
             <div class="cards-container">
-                <div class="card" th:each="pedidoDto, itemStat : ${form.pedidosDto}">
-                    <input hidden th:name="|pedidosDto[${itemStat.index}].userId|" th:value="${pedidoDto.getUserId()}" />
-                    <input hidden th:name="|pedidosDto[${itemStat.index}].recipeId|" th:value="${pedidoDto.getRecipeId()}" />
+                <div class="card" th:each="pedidoDto, itemStat : ${pedidosDto}">
+                    <input hidden th:name="|pedidoDto[${itemStat.index}].userId|" th:value="${pedidoDto.userId}" />
+                    <input hidden th:name="|pedidoDto[${itemStat.index}].recipeId|" th:value="${pedidoDto.recipe}" />
                     <div class="img-container">
                         <img th:src="${pedidoDto.recipe.photoUrl}" alt="receipt image">
                     </div>
