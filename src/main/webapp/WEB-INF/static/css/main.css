@@ -55,6 +55,8 @@ html {
   --color-remove-btn: #ff0000;
   --color-background-quantity-btns: #f1f1f1;
   --color-card-background: #f1f1f1;
+  --color-checkout-btn-bg: #55a630;
+  --color-checkout-btn-txt: #ffffff;
 }
 
 .userform-page {
@@ -358,6 +360,7 @@ html {
 }
 
 .home-page .submit-container {
+  margin-top: 2rem;
   text-align: right;
 }
 
@@ -366,7 +369,12 @@ html {
   -webkit-transition: .2s;
   transition: .2s;
   border-radius: 1rem;
-  padding: .2rem 1.3rem;
+  padding: .4rem 1.3rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: var(--color-checkout-btn-bg);
+  color: var(--color-checkout-btn-txt);
 }
 
 .receipt-image {
