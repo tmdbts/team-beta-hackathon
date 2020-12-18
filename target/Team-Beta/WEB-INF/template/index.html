@@ -5,54 +5,60 @@
     <!--    <thymeleaf th:replace="head :: head"/>-->
     <title>JupiFood</title>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/483111cb5a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../static/css/main.css" modelType="text/css"/>
+    <link rel="stylesheet" href="../static/css/main.css" modelType="text/css" />
     <link rel="shortcut icon" href="../static/images/favicon2.png" type="image/x-icon">
 </head>
 
 <body>
-<header>
-    <nav>
-        <ul>
-            <li class="active"><a th:href="@{home/}" class="nav-link">Home</a></li>
-            <li><a th:href="@{cart/}" class="nav-link">Cart</a></li>
-            <li><a th:href="@{profile/}" class="nav-link">Profile</a></li>
-            <li><a th:href="@{logout/}" class="nav-link">Logout</a></li>
-        </ul>
-    </nav>
-</header>
+    <header>
+        <nav>
+            <ul>
+                <li class="active"><a th:href="@{home/}" class="nav-link">Home</a></li>
+                <li><a th:href="@{cart/}" class="nav-link">Cart</a></li>
+                <li><a th:href="@{profile/}" class="nav-link">Profile</a></li>
+                <li><a th:href="@{logout/}" class="nav-link">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<h1 class="page-title">Home</h1>
+    <h1 class="page-title">Home</h1>
 
-<main class="home-page">
-    <div class="cards-container">
-        <div class="card" th:each="recipe : ${recipeDtoList}">
-            <div class="img-container">
-                <img th:src="${recipe.photoUrl}" alt="receipt image">
-            </div>
-            <div class="description">
-                <h3 class="receipt-name" th:text="${recipe.name}"></h3>
-                <p class="receipt-description"></p>
-            </div>
-            <div class="quantity-label">
-                <p class="label">Quantity</p>
-            </div>
-            <div class="buttons-container">
-                <div class="quantity-container">
-                    <button class="quantity circle"><i class="fas fa-minus"></i></button>
-                    <span class="quantity-span"></span>
-                    <button class="quantity circle"><i class="fas fa-plus"></i></button>
+    <main class="home-page">
+        <form method="POST">
+            <div class="cards-container">
+                <div class="card" th:each="pedidoDto, itemStat : ${form.pedidosDto}">
+                    <input hidden th:name="|pedidosDto[${itemStat.index}].userId|" th:value="${pedidoDto.getUserId()}" />
+                    <input hidden th:name="|pedidosDto[${itemStat.index}].recipeId|" th:value="${pedidoDto.getRecipeId()}" />
+                    <div class="img-container">
+                        <img th:src="${pedidoDto.recipe.photoUrl}" alt="receipt image">
+                    </div>
+                    <div class="description">
+                        <h3 class="receipt-name" th:text="${pedidoDto.recipe.name}"></h3>
+                        <p class="receipt-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+                            deleniti vel delectus numquam facere veniam aperiam. <a href="" class="view-more">Learn more</a>
+                        </p>
+                    </div>
+                    <div class="quantity-label">
+                        <p class="label">Quantity</p>
+                    </div>
+                    <div class="buttons-container">
+                        <div class="quantity-container">
+                            <input type="number" min="1" th:name="|pedidoDto[${itemStat.index}].quantity|" th:value="${pedidoDto.quantity()}" />
+                        </div>
+                        <div class="remove-container">
+                            <a class="remove rounded" th:href="@{/pedidos/${userDto.id}(rcid=${rcid},brid=${brid})','${recipe.id}}">Change</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="remove-container">
-                    <a class="remove rounded"
-                       th:href="@{/pedidos/${userDto.id}(rcid=${rcid},brid=${brid})','${recipe.id}}">Change</a>
-                </div>
             </div>
-        </div>
-    </div>
-</main>
+            <div class="submit-container">
+                <button type="submit" class="submit-btn">Checkout</button>
+            </div>
+        </form>
+    </main>
 </body>
 
 </html>

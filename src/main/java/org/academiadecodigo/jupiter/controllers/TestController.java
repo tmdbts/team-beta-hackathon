@@ -28,10 +28,13 @@ public class TestController {
         this.userToDto = userToDto;
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = {"","/"})
+    @RequestMapping(method = RequestMethod.GET, path = {"", "/"})
     public String defaultController(Model model) {
+
         List<UserDto> listUserDto = userToDto.convert(userService.listUsers());
-        model.addAttribute("listUsers",listUserDto);
-        return "fakeLogin";
+
+        model.addAttribute("listUsers", listUserDto);
+
+        return "fakelogin";
     }
 }

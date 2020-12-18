@@ -18,17 +18,9 @@ public class User extends AbstractModel {
     private String address;
 
     @OneToMany(
-            // propagate changes on user entity to chart entities
             cascade = {CascadeType.ALL},
-
-            // make sure to remove chart if unlinked from user
             orphanRemoval = true,
-
-            // user foreign key on chart table to establish
-            // the many-to-one relationship instead of a join table
             mappedBy = "user",
-
-            // fetch chart from database together with user
             fetch = FetchType.EAGER
     )
     private List<Cart> cartList = new ArrayList<>();

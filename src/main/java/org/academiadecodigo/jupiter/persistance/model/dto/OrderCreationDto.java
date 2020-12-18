@@ -7,19 +7,20 @@ import java.util.List;
 
 @Component
 public class OrderCreationDto {
-        private List<PedidoDto> pedidos;
+    
+    private List<PedidoDto> pedidos;
 
-        // default and parameterized constructor
+    // default and parameterized constructor
 
-        public void addPedido(PedidoDto pedido) {
-            this.pedidos.add(pedido);
-        }
+    public void addPedido(PedidoDto pedido) {
+        this.pedidos.add(pedido);
+    }
 
-        public List<PedidoDto> getPedidos() {
-            return pedidos;
-        }
+    public List<PedidoDto> getPedidos() {
+        return pedidos;
+    }
 
-        public void setPedidos(List<PedidoDto> pedidos) {
-            this.pedidos = pedidos;
-        }
+    public void setPedidos(List<PedidoDto> pedidos) {
+        this.pedidos = pedidos;
+    }
 }

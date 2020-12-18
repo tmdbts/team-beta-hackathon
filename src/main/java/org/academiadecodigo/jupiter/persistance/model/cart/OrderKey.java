@@ -15,8 +15,8 @@ public class OrderKey implements Serializable {
         return cartId;
     }
 
-    public void setCartId(Integer chartId) {
-        this.cartId = chartId;
+    public void setCartId(Integer cartId) {
+        this.cartId = cartId;
     }
 
     public Integer getRecipeId() {
