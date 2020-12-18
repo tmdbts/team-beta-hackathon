@@ -63,7 +63,12 @@ public class RecipeServiceImplementation implements RecipeService {
     @Override
     public List<Recipe> generateRecipeList(List<Integer> recipes, List<Integer> blacklist) {
 
+
+
         List<Recipe> allRecipes = recipeDao.findAll();
+
+
+
         List<Integer> allRecipesIds = allRecipes.stream()
                 .map(AbstractModel::getId)
                 //                Se der mrd fk intellij

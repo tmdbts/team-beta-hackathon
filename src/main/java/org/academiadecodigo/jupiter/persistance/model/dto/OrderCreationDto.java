@@ -1,6 +1,7 @@
 package org.academiadecodigo.jupiter.persistance.model.dto;
 
 import org.academiadecodigo.jupiter.persistance.model.cart.Pedidos;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
@@ -15,8 +16,6 @@ public class OrderCreationDto {
         pedidos = new LinkedList<>();
     }
 
-
-
     public void addPedido(PedidoDto pedido) {
         this.pedidos.add(pedido);
     }
@@ -25,6 +24,7 @@ public class OrderCreationDto {
         return pedidos;
     }
 
+    @Autowired
     public void setPedidos(List<PedidoDto> pedidos) {
         this.pedidos = pedidos;
     }

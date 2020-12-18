@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/483111cb5a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../static/css/main.css" modelType="text/css" />
-    <link rel="shortcut icon" href="../static/images/favicon2.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/main.css" modelType="text/css" />
+    <link rel="shortcut icon" href="/jupiter/WEB-INF/static/images/favicon2.png" type="image/x-icon">
 </head>
 
 <body>
@@ -42,18 +42,18 @@
         </form>
     </aside>
     <main class="home-page">
-        <form method="POST">
+        <form th:object="${list}" method="POST">
             <div class="cards-container">
-                <div class="card" th:each="pedidoDto, itemStat : ${form.pedidosDto}">
-                    <input hidden th:name="|pedidosDto[${itemStat.index}].userId|" th:value="${pedidoDto.getUserId()}" />
-                    <input hidden th:name="|pedidosDto[${itemStat.index}].recipeId|" th:value="${pedidoDto.getRecipeId()}" />
+                <div class="card" th:each="pedido : *{pedidos}">
+                    <input hidden th:value="${pedido.userId}" />
+                    <input hidden th:value="${pedido.recipeId}" />
                     <div class="img-container">
-                        <img th:src="${pedidoDto.recipe.photoUrl}" alt="receipt image">
+                        <img th:src="${pedido.recipe.photoUrl}" alt="receipt image">
                     </div>
                     <div class="description">
-                        <h3 class="receipt-name" th:text="${pedidoDto.recipe.name}"></h3>
+                        <h3 class="receipt-name" th:text="${pedido.recipe.name}"></h3>
                         <p class="receipt-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
-                            deleniti vel delectus numquam facere veniam aperiam. <a href="" class="view-more">Learn more</a>
+                            deleniti vel delectus numquam facere veniam aperiam. <a th:href="@{'/recipe/' + ${pedido.recipe.id}}" class="view-more">Learn more</a>
                         </p>
                     </div>
                     <div class="quantity-label">
@@ -61,10 +61,10 @@
                     </div>
                     <div class="buttons-container">
                         <div class="quantity-container">
-                            <input type="number" min="1" th:name="|pedidoDto[${itemStat.index}].quantity|" th:value="${pedidoDto.quantity()}" />
+                            <input type="number" min="1" th:value="${pedido.quantity}" />
                         </div>
                         <div class="remove-container">
-                            <a class="remove rounded" th:href="@{/pedidos/${userDto.id}(rcid=${rcid},brid=${brid})','${recipe.id}}">Change</a>
+                            <a class="remove rounded" th:href="@{'/order/'+ ${userDto.id}(rcid=${rcid} , brid=${brid} + ',' + ${pedido.recipe.id})}">Change</a>
                         </div>
                     </div>
                 </div>
