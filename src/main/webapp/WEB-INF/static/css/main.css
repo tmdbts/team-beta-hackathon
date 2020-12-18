@@ -13,7 +13,7 @@ body {
 }
 
 header {
-  background-color: #118AB2;
+  background-color: var(--color-header-bg);
 }
 
 header nav ul {
@@ -25,11 +25,6 @@ header nav ul {
       justify-content: space-around;
 }
 
-header nav ul :hover {
-  cursor: pointer;
-  background-color: #073B4C;
-}
-
 header nav ul li {
   padding: .8rem 2rem;
 }
@@ -39,8 +34,13 @@ header nav ul li a {
   color: #ffffff;
 }
 
+header nav ul li:hover {
+  cursor: pointer;
+  background-color: var(--color-header-bg-active);
+}
+
 header nav ul .active {
-  background-color: #073B4C;
+  background-color: var(--color-header-bg-active);
 }
 
 main {
@@ -48,7 +48,9 @@ main {
 }
 
 html {
-  --color-home-aside-background: #ffd166;
+  --color-header-bg: #80b918;
+  --color-header-bg-active: #55a630;
+  --color-home-aside-background: #d4e09b;
   --color-home-category-submit-bg: #F94144;
   --color-home-category-submit-txt: #ffffff;
   --color-quantity-btns: #118AB2;
@@ -57,12 +59,26 @@ html {
   --color-card-background: #f1f1f1;
   --color-checkout-btn-bg: #55a630;
   --color-checkout-btn-txt: #ffffff;
+  --color-save-btn-bg: #06d6a0;
+  --color-save-btn-txt: #ffffff;
+  --color-user-form-title: #06d6a0;
 }
 
 .userform-page {
-  /* basic stylings ------------------------------------------ */
-  /* form starting stylings ------------------------------- */
-  /* LABEL ======================================= */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 85vh;
   /* active state */
   /* BOTTOM BARS ================================= */
   /* active state */
@@ -71,12 +87,14 @@ html {
   /* ANIMATIONS ================ */
 }
 
-.userform-page body {
-  background: url(https://scotch.io/wp-content/uploads/2014/07/61.jpg);
+.userform-page .page-title {
+  font-family: 'Poppins';
+  font-size: 3rem;
+  margin-bottom: 5rem;
+  color: var(--color-user-form-title);
 }
 
 .userform-page .container {
-  font-family: 'Roboto';
   width: 600px;
   margin: 30px auto 0;
   display: block;
@@ -100,7 +118,7 @@ html {
 }
 
 .userform-page .footer a {
-  color: #53B2C8;
+  color: #118ab2;
 }
 
 .userform-page .group {
@@ -114,7 +132,7 @@ html {
   display: block;
   width: 300px;
   border: none;
-  border-bottom: 1px solid #757575;
+  border-bottom: 1px solid #118ab2;
 }
 
 .userform-page input:focus {
@@ -134,10 +152,11 @@ html {
   -webkit-transition: 0.2s ease all;
 }
 
-.userform-page input:focus ~ label, .userform-page input:valid ~ label {
+.userform-page input:focus ~ label,
+.userform-page input:valid ~ label {
   top: -20px;
   font-size: 14px;
-  color: #5264AE;
+  color: #073b4c;
 }
 
 .userform-page .bar {
@@ -146,13 +165,14 @@ html {
   width: 300px;
 }
 
-.userform-page .bar:before, .userform-page .bar:after {
+.userform-page .bar:before,
+.userform-page .bar:after {
   content: '';
   height: 2px;
   width: 0;
   bottom: 1px;
   position: absolute;
-  background: #5264AE;
+  background: #073b4c;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -166,7 +186,8 @@ html {
   right: 50%;
 }
 
-.userform-page input:focus ~ .bar:before, .userform-page input:focus ~ .bar:after {
+.userform-page input:focus ~ .bar:before,
+.userform-page input:focus ~ .bar:after {
   width: 50%;
 }
 
@@ -187,7 +208,7 @@ html {
 
 @-webkit-keyframes inputHighlighter {
   from {
-    background: #5264AE;
+    background: #073b4c;
   }
   to {
     width: 0;
@@ -197,12 +218,27 @@ html {
 
 @keyframes inputHighlighter {
   from {
-    background: #5264AE;
+    background: #073b4c;
   }
   to {
     width: 0;
     background: transparent;
   }
+}
+
+.userform-page .submit-btn {
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+  border-radius: 1rem;
+  padding: .4rem 1.3rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: var(--color-save-btn-bg);
+  color: var(--color-save-btn-txt);
+  width: 100%;
+  margin-top: 4rem;
 }
 
 .page-title {

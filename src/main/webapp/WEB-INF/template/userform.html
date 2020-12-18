@@ -3,7 +3,6 @@
 
 <head>
     <!--    <thymeleaf th:replace="head :: head" />-->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
     <title>JupiFood</title>
     <meta charset="UTF-8">
@@ -26,52 +25,45 @@
     </header>
 
     <main class="userform-page">
+        <h1 class="page-title">User Information</h1>
         <form>
-
             <div class="group">
-                <input type="text" required>
+                <input type="text" name="firstName" id="firstName" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
-                <label>First Name</label>
+                <label for="firstName">First Name</label>
             </div>
 
             <div class="group">
-                <input type="text" required>
+                <input type="text" name="lastName" id="lastName" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
-                <label>Last Name</label>
+                <label for="lastName">Last Name</label>
             </div>
 
             <div class="group">
-                <input type="text" required>
+                <input type="email" name="email" id="email" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
-                <label>Email</label>
+                <label for="email">Email</label>
             </div>
 
             <div class="group">
-                <input type="text" required>
+                <input type="text" name="phone" id="phone" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
-                <label>Phone Number</label>
+                <label for="phone">Phone Number</label>
             </div>
 
             <div class="group">
-                <input type="text" required>
+                <input type="text" name="address" id="address" required>
                 <span class="highlight"></span>
                 <span class="bar"></span>
-                <label>Address</label>
+                <label for="address">Address</label>
             </div>
-
-            <a>
-                <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
-            </a>
+            <button class="submit-btn" type="submit" value="Submit">Submit</button>
         </form>
-
-
     </main>
-
-
 </body>
 
 </html>
