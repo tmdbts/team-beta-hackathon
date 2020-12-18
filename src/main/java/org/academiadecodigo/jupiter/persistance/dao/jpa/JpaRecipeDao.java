@@ -20,10 +20,13 @@ public class JpaRecipeDao extends GenericJpaDao<Recipe> implements RecipeDao {
 
     public List<Recipe> findAllByType(String type) {
 
+        System.out.println(type);
         List<Recipe> allRecipe = findAll();
+        System.out.println(allRecipe.size());
         RecipeType recipeType = new RecipeType();
         recipeType.setType(type);
         List<Recipe> selectRecipes = allRecipe.stream().filter(x -> x.getTypes().contains(recipeType)).collect(Collectors.toList());
+        System.out.println(selectRecipes.size());
         return selectRecipes;
 
         /*TypedQuery<Recipe> query = em.createQuery("SELECT DISTINCT recipe FROM Recipe recipe JOIN recipe.types t WHERE t = :type", Recipe.class);

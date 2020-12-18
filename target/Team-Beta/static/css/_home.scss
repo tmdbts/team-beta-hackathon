@@ -91,12 +91,12 @@
             }
 
             .remove {
-                background-color: var(--color-remove-btn);
+                background-color: var(--color-header-bg);
                 color: #ffffff;
-                border: 2px solid var(--color-remove-btn);
+                border: 2px solid var(--color-header-bg);
 
                 &:hover {
-                    background-color: var(--color-background-quantity-btns);
+                    background-color: var(--color-header-bg-active);
                     color: var(--color-remove-btn);
                 }
             }

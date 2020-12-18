@@ -56,13 +56,13 @@
                 }
 
                 .remove {
-                    background-color: var(--color-remove-btn);
+                    background-color: var(--color-header-bg);
                     color: #ffffff;
-                    border: 2px solid var(--color-remove-btn);
+                    border: 2px solid var(--color-header-bg);
                     margin: 1rem;
 
                     &:hover {
-                        color: var(--color-remove-btn);
+                        color: var(--color-header-bg-active);
                         background-color: var(--color-background-quantity-btns);
                     }
                 }
