@@ -8,7 +8,7 @@ public class RecipeDto {
     private String description;
     private String photoUrl;
     private String types;
-   /* private String ingredients;
+   /*private String ingredients;
 
     public String getIngredients() {
         return ingredients;

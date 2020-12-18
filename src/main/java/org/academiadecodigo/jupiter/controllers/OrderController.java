@@ -2,22 +2,22 @@ package org.academiadecodigo.jupiter.controllers;
 
 import org.academiadecodigo.jupiter.controllers.assembler.RecipeToDto;
 import org.academiadecodigo.jupiter.controllers.assembler.RecipeToPedidoDto;
+import org.academiadecodigo.jupiter.controllers.assembler.UserChoice;
 import org.academiadecodigo.jupiter.controllers.assembler.UserToDto;
 import org.academiadecodigo.jupiter.persistance.model.dto.OrderCreationDto;
 import org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto;
 import org.academiadecodigo.jupiter.persistance.model.dto.UserDto;
 import org.academiadecodigo.jupiter.persistance.model.recipe.Recipe;
+import org.academiadecodigo.jupiter.persistance.model.recipe.RecipeType;
 import org.academiadecodigo.jupiter.services.OrderService;
 import org.academiadecodigo.jupiter.services.RecipeService;
 import org.academiadecodigo.jupiter.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -61,8 +61,8 @@ public class OrderController {
     public String loadRecipes(Model model, @RequestParam(name = "rcid", required = false) String rcid, @RequestParam(name = "brid", required = false) String brcid, @PathVariable(name = "uid", required = false) Integer uid, @RequestParam(name = "type", required = false) String type) {
 
         System.out.println("BRID1: " + brcid);
-        if (brcid==null) brcid = "";
-        if (brcid.equals(","));
+        if (brcid == null) brcid = "";
+        if (brcid.equals(",")) ;
 
         System.out.println("BRID2: " + brcid);
         List<Recipe> recipeList = new LinkedList<>();
@@ -72,7 +72,9 @@ public class OrderController {
         System.out.println("BRID3: " + brcid);
         if (type == null) type = "";
         if (type.equals("vegan") || type.equals("healthy") || type.equals("vegetarian")) {
-            recipeList = recipeService.generateRecipeList(recipesIds, blackListedIds, type);
+            RecipeType recipeType = new RecipeType();
+            recipeType.setType(type);
+            recipeList = recipeService.generateRecipeList(recipesIds, blackListedIds, "hey"/*recipeType*/);
         } else {
             recipeList = recipeService.generateRecipeList(recipesIds, blackListedIds);
         }
@@ -86,14 +88,30 @@ public class OrderController {
 
         System.out.println(rcid);
 
-        if (brcid==null) brcid = "";
+        if (brcid == null) brcid = "";
+
+        UserChoice userChoice = new UserChoice();
+        userChoice.setUid(uid);
 
         model.addAttribute("userDto", user);
         model.addAttribute("rcid", rcid1);
         model.addAttribute("brid", brcid);
         model.addAttribute("list", orderCreationDto);
-
+        model.addAttribute("userChoice",userChoice);
         return "index";
+    }
+
+
+    @RequestMapping(method = RequestMethod.POST, path = {"/listByType"})
+    public String readType(@ModelAttribute("userChoice") UserChoice userChoice) {
+        Integer uid = userChoice.getUid();
+        String type = userChoice.getHealthy();
+        if (type != null) return "redirect:/order/" + uid + "?type=" + type;
+        type = userChoice.getVegan();
+        if (type != null) return "redirect:/order/" + uid + "?type=" + type;
+        type = userChoice.getVegetarian();
+        if (type != null) return "redirect:/order/" + uid + "?type=" + type;
+        return "redirect:/order/" + uid;
     }
 
     @Autowired

@@ -1,6 +1,7 @@
 org/academiadecodigo/jupiter/controllers/assembler/RecipeToDto.class
 org/academiadecodigo/jupiter/persistance/dao/CartDao.class
 org/academiadecodigo/jupiter/persistance/model/dto/RecipeDto.class
+org/academiadecodigo/jupiter/controllers/assembler/UserChoice.class
 org/academiadecodigo/jupiter/persistance/model/recipe/Ingredient.class
 org/academiadecodigo/jupiter/persistance/dao/UserDao.class
 org/academiadecodigo/jupiter/persistance/dao/jpa/GenericJpaDao.class

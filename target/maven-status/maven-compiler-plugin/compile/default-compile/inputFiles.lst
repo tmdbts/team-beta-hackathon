@@ -14,6 +14,7 @@
 /Users/edgaralves/Desktop/AcademiaCodigo/hackathon_beta/team-beta-hackathon/src/main/java/org/academiadecodigo/jupiter/controllers/assembler/RecipeToDto.java
 /Users/edgaralves/Desktop/AcademiaCodigo/hackathon_beta/team-beta-hackathon/src/main/java/org/academiadecodigo/jupiter/persistance/model/cart/OrderKey.java
 /Users/edgaralves/Desktop/AcademiaCodigo/hackathon_beta/team-beta-hackathon/src/main/java/org/academiadecodigo/jupiter/persistance/dao/UserDao.java
+/Users/edgaralves/Desktop/AcademiaCodigo/hackathon_beta/team-beta-hackathon/src/main/java/org/academiadecodigo/jupiter/controllers/assembler/UserChoice.java
 /Users/edgaralves/Desktop/AcademiaCodigo/hackathon_beta/team-beta-hackathon/src/main/java/org/academiadecodigo/jupiter/persistance/model/recipe/RecipeType.java
 /Users/edgaralves/Desktop/AcademiaCodigo/hackathon_beta/team-beta-hackathon/src/main/java/org/academiadecodigo/jupiter/controllers/CheckoutController.java
 /Users/edgaralves/Desktop/AcademiaCodigo/hackathon_beta/team-beta-hackathon/src/main/java/org/academiadecodigo/jupiter/persistance/model/Model.java
