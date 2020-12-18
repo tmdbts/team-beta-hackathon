@@ -21,9 +21,8 @@ public class Recipe extends AbstractModel {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<RecipeType> types;
-    
+
     @ManyToMany
-    @Fetch(value = FetchMode.SUBSELECT)
     private List<Ingredient> ingredientList;
 
     public String getName() {

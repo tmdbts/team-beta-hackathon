@@ -1,6 +1,5 @@
 package org.academiadecodigo.jupiter.controllers.assembler;
 
-import org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto;
 import org.academiadecodigo.jupiter.persistance.model.recipe.Recipe;
 import org.springframework.stereotype.Component;
 
@@ -10,9 +9,9 @@ import java.util.List;
 @Component
 public class RecipeToDto {
 
-    public RecipeDto convert(Recipe recipe) {
+    public org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto convert(Recipe recipe) {
 
-        RecipeDto recipeDto = new RecipeDto();
+        org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto recipeDto = new org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto();
 
         recipeDto.setId(recipe.getId());
         recipeDto.setCookingTime(recipe.getCookingTime());
@@ -23,9 +22,9 @@ public class RecipeToDto {
         return recipeDto;
     }
 
-    public List<RecipeDto> convert(List<Recipe> list) {
+    public List<org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto> convert(List<Recipe> list) {
 
-        List<RecipeDto> conversions = new ArrayList<>(list.size());
+        List<org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto> conversions = new ArrayList<>(list.size());
 
         for (Recipe toConvert : list) {
             conversions.add(convert(toConvert));

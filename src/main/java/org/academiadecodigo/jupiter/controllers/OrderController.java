@@ -1,8 +1,9 @@
 package org.academiadecodigo.jupiter.controllers;
 
 import org.academiadecodigo.jupiter.controllers.assembler.RecipeToDto;
+import org.academiadecodigo.jupiter.controllers.assembler.RecipeToPedidoDto;
 import org.academiadecodigo.jupiter.controllers.assembler.UserToDto;
-import org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto;
+import org.academiadecodigo.jupiter.persistance.model.dto.OrderCreationDto;
 import org.academiadecodigo.jupiter.persistance.model.dto.UserDto;
 import org.academiadecodigo.jupiter.persistance.model.recipe.Recipe;
 import org.academiadecodigo.jupiter.services.OrderService;
@@ -28,6 +29,12 @@ public class OrderController {
     RecipeToDto recipeToDto;
     UserService userService;
     UserToDto userToDto;
+    RecipeToPedidoDto recipeToPedidoDto;
+
+    @Autowired
+    public void setRecipeToPedidoDto(RecipeToPedidoDto recipeToPedidoDto) {
+        this.recipeToPedidoDto = recipeToPedidoDto;
+    }
 
     @Autowired
     public void setUserToDto(UserToDto userToDto) {
@@ -50,27 +57,29 @@ public class OrderController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{uid}")
-    public String loadRecipes(Model model, @RequestParam("rcid") String rcid, @RequestParam("brid") String brcid, @PathVariable("uid") Integer uid, @RequestParam("type") String type) {
+    public String loadRecipes(Model model, @RequestParam(name = "rcid", required = false) String rcid, @RequestParam(name = "brid", required = false) String brcid, @PathVariable(name = "uid", required = false) Integer uid, @RequestParam(name = "type", required = false) String type) {
 
         List<Recipe> recipeList = new LinkedList<>();
         List<Integer> recipesIds = stringArraytoInt(rcid);
         List<Integer> blackListedIds = stringArraytoInt(brcid);
 
-        if (type.equals("vegan") || type.equals("healthy") || type.equals("balanced")) {
+
+        if (type.equals("vegan") || type.equals("healthy") || type.equals("vegetarian")) {
             recipeList = recipeService.generateRecipeList(recipesIds, blackListedIds, type);
         } else {
             recipeList = recipeService.generateRecipeList(recipesIds, blackListedIds);
         }
 
         List<Integer> listIds = getRecipesIds(recipeList);
+        List<org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto> listConverted = recipeToDto.convert(recipeList);
         String rcid1 = getRCID(listIds);
-        List<RecipeDto> listConverted = recipeToDto.convert(recipeList);
         UserDto user = userToDto.convert(userService.getUser(uid));
+        OrderCreationDto orderCreationDto = recipeToPedidoDto.convert(uid, 1, listConverted);
 
         model.addAttribute("userDto", user);
-        model.addAttribute("recipeDtoList", listConverted);
         model.addAttribute("rcid", rcid1);
         model.addAttribute("brid", blackListedIds);
+        model.addAttribute("pedidosDto", orderCreationDto);
 
         return "index";
     }
@@ -110,9 +119,9 @@ public class OrderController {
         StringBuilder stringBuilder = new StringBuilder();
 
         for (Integer id : listOfIds) {
-            stringBuilder.append(id + ",");
+            stringBuilder.append(id).append(",");
         }
-        
+
         return stringBuilder.toString();
     }
 }

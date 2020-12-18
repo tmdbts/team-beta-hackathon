@@ -15,7 +15,7 @@ public class RecipeType extends AbstractModel {
 
     private String type;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "types")
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "types")
     List<Recipe> recipeList;
 
     public String getType() {
