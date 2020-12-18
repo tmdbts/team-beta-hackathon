@@ -48,6 +48,7 @@ main {
 }
 
 html {
+  --color-home-aside-background: #FFD166;
   --color-quantity-btns: #118AB2;
   --color-remove-btn: #ff0000;
   --color-background-quantity-btns: #f1f1f1;
@@ -207,6 +208,24 @@ html {
   margin: 2rem 0;
 }
 
+.category-aside {
+  background-color: var(--color-home-aside-background);
+  padding: 1rem 0;
+}
+
+.category-aside form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.category-aside form .category-selector.middle {
+  margin: 0 2rem;
+}
+
 .home-page {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -217,7 +236,7 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 1rem 2rem;
+  padding: 2rem 2rem;
 }
 
 .home-page .cards-container {
