@@ -13,7 +13,9 @@ import java.util.List;
 public class Recipe extends AbstractModel {
 
     private String name;
-    private Integer cookingTime;
+    private String cookingTime;
+
+    @Column(length = 1024)
     private String description;
     private String photoUrl;
 
@@ -32,11 +34,11 @@ public class Recipe extends AbstractModel {
         this.name = name;
     }
 
-    public int getCookingTime() {
+    public String getCookingTime() {
         return cookingTime;
     }
 
-    public void setCookingTime(int cookingTime) {
+    public void setCookingTime(String cookingTime) {
         this.cookingTime = cookingTime;
     }
 

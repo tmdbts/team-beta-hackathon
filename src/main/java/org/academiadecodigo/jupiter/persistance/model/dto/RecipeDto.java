@@ -4,7 +4,7 @@ public class RecipeDto {
 
     private Integer id;
     private String name;
-    private Integer cookingTime;
+    private String cookingTime;
     private String description;
     private String photoUrl;
 
@@ -40,11 +40,11 @@ public class RecipeDto {
         this.id = id;
     }
 
-    public Integer getCookingTime() {
+    public String getCookingTime() {
         return cookingTime;
     }
 
-    public void setCookingTime(Integer cookingTime) {
+    public void setCookingTime(String cookingTime) {
         this.cookingTime = cookingTime;
     }
 }
