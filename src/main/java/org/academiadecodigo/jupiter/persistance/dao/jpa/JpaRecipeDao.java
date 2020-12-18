@@ -1,10 +1,12 @@
 package org.academiadecodigo.jupiter.persistance.dao.jpa;
 
 import org.academiadecodigo.jupiter.persistance.dao.RecipeDao;
+import org.academiadecodigo.jupiter.persistance.model.recipe.Ingredient;
 import org.academiadecodigo.jupiter.persistance.model.recipe.Recipe;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.TypedQuery;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
