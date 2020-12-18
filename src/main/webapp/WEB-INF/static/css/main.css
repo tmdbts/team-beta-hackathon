@@ -318,6 +318,8 @@ html {
   background-color: var(--color-remove-btn);
   color: #ffffff;
   border: 2px solid var(--color-remove-btn);
+  padding: 1px 6px;
+  font-size: .8rem;
 }
 
 .home-page .cards-container .buttons-container .remove:hover {
