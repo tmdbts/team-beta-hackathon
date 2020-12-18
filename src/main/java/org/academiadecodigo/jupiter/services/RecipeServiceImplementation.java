@@ -3,6 +3,7 @@ package org.academiadecodigo.jupiter.services;
 import org.academiadecodigo.jupiter.persistance.dao.RecipeDao;
 import org.academiadecodigo.jupiter.persistance.model.AbstractModel;
 import org.academiadecodigo.jupiter.persistance.model.recipe.Recipe;
+import org.academiadecodigo.jupiter.persistance.model.recipe.RecipeType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,9 +26,9 @@ public class RecipeServiceImplementation implements RecipeService {
     }
 
     @Override
-    public List<Recipe> generateRecipeList(String recipeType) {
-
-        List<Recipe> allRecipes = recipeDao.findAllByType(recipeType);
+    public List<Recipe> generateRecipeList(RecipeType recipeType) {
+        String type = recipeType.getType();
+        List<Recipe> allRecipes = recipeDao.findAllByType(type);
         List<Recipe> randomTypeRecipes = new ArrayList<>();
 
         while (randomTypeRecipes.size() < 8) {
@@ -88,9 +89,9 @@ public class RecipeServiceImplementation implements RecipeService {
     }
 
     @Override
-    public List<Recipe> generateRecipeList(List<Integer> recipes, List<Integer> blacklist, String recipeType) {
-
-        List<Recipe> allRecipes = recipeDao.findAllByType(recipeType);
+    public List<Recipe> generateRecipeList(List<Integer> recipes, List<Integer> blacklist, RecipeType recipeType) {
+        String type = recipeType.getType();
+        List<Recipe> allRecipes = recipeDao.findAllByType(type);
         List<Integer> allRecipesIds = allRecipes.stream()
                 .map(AbstractModel::getId)
 //                Se der mrd fk intellij
