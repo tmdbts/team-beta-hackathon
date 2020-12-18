@@ -64,7 +64,7 @@ public class OrderController {
         List<Integer> blackListedIds = stringArraytoInt(brcid);
 
 
-        if (type.equals("vegan") || type.equals("healthy") || type.equals("balanced")) {
+        if (type.equals("vegan") || type.equals("healthy") || type.equals("vegetarian")) {
             recipeList = recipeService.generateRecipeList(recipesIds, blackListedIds, type);
         } else {
             recipeList = recipeService.generateRecipeList(recipesIds, blackListedIds);
