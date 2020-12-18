@@ -74,7 +74,7 @@ public class OrderController {
         if (type.equals("vegan") || type.equals("healthy") || type.equals("vegetarian")) {
             RecipeType recipeType = new RecipeType();
             recipeType.setType(type);
-            recipeList = recipeService.generateRecipeList(recipesIds, blackListedIds, "hey"/*recipeType*/);
+            recipeList = recipeService.generateRecipeList(recipesIds, blackListedIds, recipeType);
         } else {
             recipeList = recipeService.generateRecipeList(recipesIds, blackListedIds);
         }

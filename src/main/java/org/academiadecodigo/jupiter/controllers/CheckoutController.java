@@ -12,8 +12,8 @@ import javax.validation.Valid;
 @Controller
 public class CheckoutController {
 
-    @RequestMapping(method = RequestMethod.POST ,value = "/checkout")
-    public String postCart(@PathVariable(name = "uid") Integer uid, @ModelAttribute("list")OrderCreationDto orderCreationDto){
-        return "pissas";
+    @RequestMapping(method = RequestMethod.GET ,value = "/checkout")
+    public String postCart(){
+        return "Checkout";
     }
 }

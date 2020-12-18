@@ -10,16 +10,16 @@
         <nav>
             <ul>
                 <li class="active"><a th:href="@{home/}" class="nav-link">Home</a></li>
-                <li><a th:href="@{cart/}" class="nav-link">Cart</a></li>
-                <li><a th:href="@{profile/}" class="nav-link">Profile</a></li>
-                <li><a th:href="@{logout/}" class="nav-link">Logout</a></li>
+                <li><a th:href="@{'/user/'+ ${userDto.id}}" class="nav-link">Cart</a></li>
+                <li><a th:href="@{'/user/'+ ${userDto.id}}" class="nav-link">Profile</a></li>
+                <li><a th:href="@{/}" class="nav-link">Logout</a></li>
             </ul>
         </nav>
     </header>
 
     <h1 class="page-title">Home</h1>
     <aside class="category-aside">
-        <form action="/jupiter/order/listByType" method="POST" th:object="${userChoice}">
+        <form action="/checkout" method="GET" th:object="${userChoice}">
             <div class="category-selector">
                 <input hidden th:value="*{uid}">
                 <a href="1?type=healthy">Healthy</a>
@@ -33,7 +33,7 @@
         </form>
     </aside>
     <main class="home-page">
-        <form th:object="${list}" th:action="@{'/checkout'}" method="POST">
+        <form th:object="${list}" th:action="@{'/checkout'}" method="GET">
             <div class="cards-container">
                 <div class="card" th:each="pedido : *{pedidos}">
                     <input hidden th:value="${pedido.userId}" />
@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="submit-container">
-                <button type="submit" class="submit-btn">Checkout</button>
+                <button href="/checkout" type="submit" class="submit-btn">Checkout</button>
             </div>
         </form>
     </main>
