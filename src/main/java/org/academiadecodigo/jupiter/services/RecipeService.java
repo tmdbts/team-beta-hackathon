@@ -6,7 +6,12 @@ import java.util.List;
 
 public interface RecipeService {
 
-    //generates a list of recipes of the same type
+    /**
+     * Generates a list of recipes of the same type
+     *
+     * @param recipeType Recipe type
+     * @return List of recipes
+     */
     List<Recipe> generateRecipeList(String recipeType);
 
     List<Recipe> generateRecipeList();

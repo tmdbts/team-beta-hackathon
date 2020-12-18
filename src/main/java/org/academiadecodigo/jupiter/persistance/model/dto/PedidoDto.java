@@ -1,7 +1,5 @@
 package org.academiadecodigo.jupiter.persistance.model.dto;
 
-import org.academiadecodigo.jupiter.persistance.model.recipe.Recipe;
-
 public class PedidoDto {
 
     private Integer recipeId;

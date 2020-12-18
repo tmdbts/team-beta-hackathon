@@ -20,8 +20,9 @@
         .card {
             padding: 1rem;
             text-align: center;
-            background-color: #dddddd;
+            background-color: var(--color-card-background);
             border-radius: 10px;
+            box-shadow: 1px 3px 16px -4px rgba(0, 0, 0, 0.75);
         }
 
         .img-container {
@@ -45,6 +46,8 @@
             .label {
                 font-weight: bold;
             }
+
+
         }
 
         .buttons-container {
@@ -78,6 +81,10 @@
                 display: flex;
                 align-items: center;
 
+                input {
+                    width: 5rem;
+                }
+
                 .circle {
                     padding: .2rem;
                     border-radius: 50%;
@@ -99,6 +106,17 @@
                     }
                 }
             }
+        }
+    }
+
+    .submit-container {
+        text-align: right;
+
+        .submit-btn {
+            cursor: pointer;
+            transition: .2s;
+            border-radius: 1rem;
+            padding: .2rem 1.3rem;
         }
     }
 }

@@ -47,8 +47,10 @@ public class RecipeServiceImplementation implements RecipeService {
         List<Recipe> allRecipes = recipeDao.findAll();
         List<Recipe> randomRecipes = new ArrayList<>();
 
+        System.out.println(allRecipes.size());
+
         while (randomRecipes.size() < 8) {
-            int random = ((int) (Math.random()) * allRecipes.size());
+            int random = (int) (Math.random() * allRecipes.size());
 
             if (!randomRecipes.contains(allRecipes.get(random))) {
                 randomRecipes.add(allRecipes.get(random));
@@ -56,16 +58,15 @@ public class RecipeServiceImplementation implements RecipeService {
         }
 
         return randomRecipes;
-
     }
-
 
     @Override
     public List<Recipe> generateRecipeList(List<Integer> recipes, List<Integer> blacklist) {
 
         List<Recipe> allRecipes = recipeDao.findAll();
         List<Integer> allRecipesIds = allRecipes.stream()
-                .map(r -> r.getId())
+                .map(AbstractModel::getId)
+                //                Se der mrd fk intellij
                 .collect(Collectors.toList());
 
         recipes = recipes.stream().filter(blacklist::contains).collect(Collectors.toList());
