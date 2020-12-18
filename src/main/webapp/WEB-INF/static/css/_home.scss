@@ -5,11 +5,26 @@
     margin: 2rem 0;
 }
 
+.category-aside {
+    background-color: var(--color-home-aside-background);
+    padding: 1rem 0;
+
+    form {
+        display: flex;
+        justify-content: center;
+
+        .category-selector.middle {
+            margin: 0 2rem;
+        }
+    }
+
+}
+
 .home-page {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 2rem;
+    padding: 2rem 2rem;
 
 
     .cards-container {

@@ -9,8 +9,8 @@ org/academiadecodigo/jupiter/persistance/model/cart/OrderKey.class
 org/academiadecodigo/jupiter/controllers/assembler/RecipeToPedidoDto.class
 org/academiadecodigo/jupiter/persistance/model/dto/PedidoDto.class
 org/academiadecodigo/jupiter/controllers/CheckoutController.class
-org/academiadecodigo/jupiter/services/UserServiceImplementation.class
 org/academiadecodigo/jupiter/SpringBootstrap.class
+org/academiadecodigo/jupiter/services/UserServiceImplementation.class
 org/academiadecodigo/jupiter/persistance/model/Model.class
 org/academiadecodigo/jupiter/persistance/model/cart/Cart.class
 org/academiadecodigo/jupiter/controllers/OrderController.class
@@ -31,8 +31,8 @@ org/academiadecodigo/jupiter/persistance/model/dto/UserDto.class
 org/academiadecodigo/jupiter/controllers/RecipesController.class
 org/academiadecodigo/jupiter/persistance/model/cart/Pedidos.class
 org/academiadecodigo/jupiter/controllers/HomeController.class
-org/academiadecodigo/jupiter/services/OrderService.class
 org/academiadecodigo/jupiter/persistance/dao/jpa/JpaCartDao.class
 org/academiadecodigo/jupiter/persistance/model/User.class
+org/academiadecodigo/jupiter/services/OrderService.class
 org/academiadecodigo/jupiter/persistance/dao/Dao.class
 org/academiadecodigo/jupiter/persistance/model/recipe/RecipeType.class
