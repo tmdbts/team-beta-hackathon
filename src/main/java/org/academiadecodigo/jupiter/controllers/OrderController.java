@@ -59,22 +59,28 @@ public class OrderController {
     @RequestMapping(method = RequestMethod.GET, value = "/{uid}")
     public String loadRecipes(Model model, @RequestParam(name = "rcid", required = false) String rcid, @RequestParam(name = "brid", required = false) String brcid, @PathVariable(name = "uid", required = false) Integer uid, @RequestParam(name = "type", required = false) String type) {
 
+        System.out.println("Teste");
+
         List<Recipe> recipeList = new LinkedList<>();
         List<Integer> recipesIds = stringArraytoInt(rcid);
         List<Integer> blackListedIds = stringArraytoInt(brcid);
 
-
+        System.out.println("Before ifs");
+        if (type == null) type = "";
         if (type.equals("vegan") || type.equals("healthy") || type.equals("vegetarian")) {
             recipeList = recipeService.generateRecipeList(recipesIds, blackListedIds, type);
         } else {
             recipeList = recipeService.generateRecipeList(recipesIds, blackListedIds);
         }
 
+        System.out.println("I am here");
         List<Integer> listIds = getRecipesIds(recipeList);
         List<org.academiadecodigo.jupiter.persistance.model.dto.RecipeDto> listConverted = recipeToDto.convert(recipeList);
         String rcid1 = getRCID(listIds);
         UserDto user = userToDto.convert(userService.getUser(uid));
         OrderCreationDto orderCreationDto = recipeToPedidoDto.convert(uid, 1, listConverted);
+
+        System.out.println(rcid);
 
         model.addAttribute("userDto", user);
         model.addAttribute("rcid", rcid1);
@@ -91,6 +97,7 @@ public class OrderController {
 
     private List<Integer> stringArraytoInt(String idsInString) {
 
+        if (idsInString == null) return new LinkedList<>();
         if (idsInString.equals("")) return new LinkedList<>();
 
         String[] array = idsInString.split(",");

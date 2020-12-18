@@ -31,7 +31,7 @@ public class RecipeServiceImplementation implements RecipeService {
         List<Recipe> randomTypeRecipes = new ArrayList<>();
 
         while (randomTypeRecipes.size() < 8) {
-            int random = ((int) (Math.random()) * allRecipes.size());
+            int random = (int) (Math.random() * allRecipes.size());
 
             if (!randomTypeRecipes.contains(allRecipes.get(random))) {
                 randomTypeRecipes.add(allRecipes.get(random));
@@ -72,7 +72,7 @@ public class RecipeServiceImplementation implements RecipeService {
         recipes = recipes.stream().filter(blacklist::contains).collect(Collectors.toList());
 
         while (recipes.size() < 8) {
-            int random = ((int) (Math.random()) * allRecipesIds.size());
+            int random = (int) (Math.random() * allRecipesIds.size());
 
             if (!recipes.contains(allRecipesIds.get(random))) {
                 recipes.add(allRecipesIds.get(random));
@@ -94,7 +94,7 @@ public class RecipeServiceImplementation implements RecipeService {
         recipes = recipes.stream().filter(blacklist::contains).collect(Collectors.toList());
 
         while (recipes.size() < 8) {
-            int random = ((int) (Math.random()) * allRecipesIds.size());
+            int random = (int) (Math.random() * allRecipesIds.size());
 
             if (!recipes.contains(allRecipesIds.get(random))) {
                 recipes.add(allRecipesIds.get(random));
